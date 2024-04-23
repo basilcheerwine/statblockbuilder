@@ -79,7 +79,7 @@
     }
 
     table {
-      width:355px;
+      width:425px;
       border:0px;
       text-align:center;
       vertical-align:center;
@@ -197,25 +197,7 @@
             <option value="undead">Undead</option>
           </select>&nbsp;&nbsp;&nbsp;
           Tag: <input class="text-box-short" type="text" placeholder="tag">&nbsp;&nbsp;&nbsp;
-          <label for="mon-align">Alignment: </label>
-          <select name="mon-align" id="mon-align">
-            <option value="blank"></option>
-            <option value="unaligned">Unaligned</option>
-            <option value="any lawful">Any Lawful</option>
-            <option value="any chaotic">Any Chaotic</option>
-            <option value="any good">Any Good</option>
-            <option value="any evil">Any Evil</option>
-            <option value="lawful good">Lawful Good</option>
-            <option value="lawful neutral">Lawful Neutral</option>
-            <option value="lawful evil">Lawful Evil</option>
-            <option value="neutral good">Neutral Good</option>
-            <option value="true neutral">True Neutral</option>
-            <option value="neutral evil">Neutral Evil</option>
-            <option value="chaotic good">Chaotic Good</option>
-            <option value="chaotic neutral">Chaotic Neutral</option>
-            <option value="chaotic evil">Chaotic Evil</option>
-            <option value="other">Other</option>
-          </select><br>
+          Alignment: <input class="text-box-short" type="text" placeholder="alignment"><br>
           <table>
             <tr>
               <th>Ability</th>
@@ -265,10 +247,11 @@
           AC bonus: <input class="num-box" type="text" placeholder="0">&nbsp;&nbsp;&nbsp;
           Speed: <input class="num-box" type="text" placeholder="30">&nbsp;&nbsp;&nbsp;
           Fly: <input class="num-box" type="text" placeholder="0">
-          <label for="vehicle1"> Hover?</label>
+          <label for="fly"> Hover?</label>
           <input type="checkbox" id="fly" name="fly" value="hover">&nbsp;&nbsp;&nbsp;
           Swim: <input class="num-box" type="text" placeholder="0">&nbsp;&nbsp;&nbsp;
-          Burrow: <input class="num-box" type="text" placeholder="0"><br>
+          Burrow: <input class="num-box" type="text" placeholder="0">
+          Climb: <input class="num-box" type="text" placeholder="0"><br>
           <label for="damages">Damage Immunities and Resistances: </label>
           <select name="damages" id="damages">
             <option value="acid">Acid</option>
@@ -280,6 +263,7 @@
             <option value="necrotic">Necrotic</option>
             <option value="piercing">Piercing</option>
             <option value="poison">Poison</option>
+            <option value="psychic">Psychic</option>
             <option value="radiant">Radiant</option>
             <option value="slashing">Slashing</option>
             <option value="thunder">Thunder</option>
@@ -288,7 +272,37 @@
           </select>&nbsp;&nbsp;&nbsp;
           <input type="button" onclick="alert('Resistant')" value="Resistant">&nbsp;&nbsp;&nbsp;
           <input type="button" onclick="alert('Immune')" value="Immune">&nbsp;&nbsp;&nbsp;
-          <input type="button" onclick="alert('Vulnerable')" value="Vulnerable">
+          <input type="button" onclick="alert('Vulnerable')" value="Vulnerable"><br>
+          <label for="skills">Skills: </label>
+          <select name="skills" id="skills">
+            <option value="acrobatics">Acrobatics</option>
+            <option value="animal handling">Animal Handling</option>
+            <option value="arcana">Arcana</option>
+            <option value="athletics">Athletics</option>
+            <option value="deception">Deception</option>
+            <option value="history">History</option>
+            <option value="insight">Insight</option>
+            <option value="intimidation">Intimidation</option>
+            <option value="investigation">Investigation</option>
+            <option value="medicine">Medicine</option>
+            <option value="nature">Nature</option>
+            <option value="perception">Perception</option>
+            <option value="performance">Performance</option>
+            <option value="persuasion">Persuasion</option>
+            <option value="religion">Religion</option>
+            <option value="sleight of hand">Sleight of Hand</option>
+            <option value="stealth">Stealth</option>
+            <option value="survival">Survival</option>
+          </select>&nbsp;&nbsp;&nbsp;
+          <input type="button" onclick="alert('Proficient')" value="Proficient">&nbsp;&nbsp;&nbsp;
+          <input type="button" onclick="alert('Expertise')" value="Expertise">
+          Languages: <input class="text-box-long" type="text" placeholder="Languages"><br>
+          Darkvision: <input class="num-box" type="text" placeholder="0">&nbsp;&nbsp;&nbsp;
+          Blindsight: <input class="num-box" type="text" placeholder="0">
+          <label for="bs"> Blind beyond?</label>
+          <input type="checkbox" id="bs" name="bs" value="blindsight">&nbsp;&nbsp;&nbsp;
+          Tremorsense: <input class="num-box" type="text" placeholder="0">&nbsp;&nbsp;&nbsp;
+          Truesight: <input class="num-box" type="text" placeholder="0"><br>
         </div>
         <div id="spacer"></div>
       </div>
