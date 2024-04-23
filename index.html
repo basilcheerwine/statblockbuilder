@@ -71,10 +71,15 @@
       border:2px solid darkred;
     }
 
+    #intro {
+      position:relative;
+      margin-top:10px;
+    }
+
     #statblock {
       width:80%;
       /*max-width:600px;*/
-      position:absolute;
+      position:relative;
       margin:10px auto;
       padding:5px;
       border-top:5px solid darkred;
@@ -99,6 +104,7 @@
     <main>
       <div id="container">
         <h1 style="text-align:center">Stat Block Builder</h1>
+        <div id="intro">
         <label for="presets">Select a preset: </label>
           <select name="presets" id="presets">
             <option value="default">Default</option>
@@ -107,6 +113,7 @@
             <option value="vampire">Vampire</option>
           </select>
         <h2>Stat Block:</h2>
+        </div>
         <div id="statblock">
           <h1>Monster Name</h1>
           <p>Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth.</p>
