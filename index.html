@@ -214,7 +214,6 @@
           </table>
           <table>
             <tr>
-              <th>Ability</th>
               <td>Strength</td>
               <td>Dexterity</td>
               <td>Constitution</td>
@@ -223,7 +222,6 @@
               <td>Charisma</td>
             </tr>
             <tr>
-              <th>Score</th>
               <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
               <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
               <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
@@ -232,13 +230,12 @@
               <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
             </tr>
             <tr>
-              <th>Proficient?</th>
-              <td><input type="checkbox" id="strp" name="strp" value="strp"></td>
-              <td><input type="checkbox" id="dexp" name="dexp" value="dexp"></td>
-              <td><input type="checkbox" id="conp" name="conp" value="conp"></td>
-              <td><input type="checkbox" id="intp" name="intp" value="intp"></td>
-              <td><input type="checkbox" id="wisp" name="wisp" value="wisp"></td>
-              <td><input type="checkbox" id="chap" name="chap" value="chap"></td>
+              <td><label for="strp">Proficient?</label> <input type="checkbox" id="strp" name="strp" value="strp"></td>
+              <td><label for="dexp">Proficient?</label> <input type="checkbox" id="dexp" name="dexp" value="dexp"></td>
+              <td><label for="conp">Proficient?</label> <input type="checkbox" id="conp" name="conp" value="conp"></td>
+              <td><label for="intp">Proficient?</label> <input type="checkbox" id="intp" name="intp" value="intp"></td>
+              <td><label for="wisp">Proficient?</label> <input type="checkbox" id="wisp" name="wisp" value="wisp"></td>
+              <td><label for="chap">Proficient?</label> <input type="checkbox" id="chap" name="chap" value="chap"></td>
           </table>
           <table>
             <tr>
@@ -254,21 +251,17 @@
               </select></td>
             <td>AC bonus:<br>
               <input class="num-box" type="text" placeholder="0"></td>
+            <td><label for="shield">Shield?</label> <input type="checkbox" id="shield" name="shield" value="shield"></td>
             </tr>
         </table>
         <table>
           <tr>
-            <td>Speed:<br>
-              <input class="num-box" type="text" placeholder="30"></td>
-            <td>Fly:<br>
-              <input class="num-box" type="text" placeholder="0"><br>
-              <label for="fly"> Hover?</label> <input type="checkbox" id="fly" name="fly" value="hover"></td>
-            <td>Swim:<br>
-              <input class="num-box" type="text" placeholder="0"></td>
-            <td>Burrow:<br>
-              <input class="num-box" type="text" placeholder="0"></td>
-            <td>Climb:<br>
-              <input class="num-box" type="text" placeholder="0"></td>
+            <td>Speed: <input class="num-box" type="text" placeholder="30"></td>
+            <td>Fly: <input class="num-box" type="text" placeholder="0"><br>
+              <label for="fly">Hover?</label> <input type="checkbox" id="fly" name="fly" value="hover"></td>
+            <td>Swim: <input class="num-box" type="text" placeholder="0"></td>
+            <td>Burrow: <input class="num-box" type="text" placeholder="0"></td>
+            <td>Climb: <input class="num-box" type="text" placeholder="0"></td>
           </tr>
         </table>
         <table>
@@ -351,15 +344,11 @@
         </table>
         <table>
           <tr>
-            <td>Darkvision:<br>
-              <input class="num-box" type="text" placeholder="0"></td>
-            <td>Blindsight:<br>
-              <input class="num-box" type="text" placeholder="0"></td>
-            <td><label for="bs">Blind beyond?</label> <input type="checkbox" id="bs" name="bs" value="blindsight"></td>
-            <td>Tremorsense:<br>
-              <input class="num-box" type="text" placeholder="0"></td>
-            <td>Truesight:<br>
-              <input class="num-box" type="text" placeholder="0"></td>
+            <td>Darkvision: <input class="num-box" type="text" placeholder="0"></td>
+            <td>Blindsight: <input class="num-box" type="text" placeholder="0"><br>
+              <label for="bs">Blind beyond?</label> <input type="checkbox" id="bs" name="bs" value="blindsight"></td>
+            <td>Tremorsense: <input class="num-box" type="text" placeholder="0"></td>
+            <td>Truesight: <input class="num-box" type="text" placeholder="0"></td>
           </tr>
         </table>
         </div>
