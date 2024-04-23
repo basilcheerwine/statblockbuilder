@@ -61,6 +61,13 @@
       text-align:center;
     }
 
+    .text-box {
+      width:100px;
+      height:auto;
+      font-size:11px;
+      text-align:left;
+    }
+
     #container {
       width:75%;
       max-width:1200px;
@@ -125,7 +132,35 @@
         </div>
         <div id="stats">
         <h2>Stats:</h2>
-          <p>Now enter hit points: <input class="num-box" type="text" placeholder="22"></p>
+          <p>Monster Name: <input class="text-box" type="text" placeholder="Default Monster Name"></p>
+          <label for="mon-size">Size: </label>
+          <select name="mon-size" id="mon-size">
+            <option value="tiny">Tiny</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="huge">Huge</option>
+            <option value="gargantuan">Gargantuan</option>
+            <option value="titanic">Titanic</option>
+          </select>
+          <label for="mon-align">Alignment: </label>
+          <select name="mon-align" id="mon-align">
+            <option value="unaligned">Unaligned</option>
+            <option value="any lawful">Any Lawful</option>
+            <option value="any chaotic">Any Chaotic</option>
+            <option value="any good">Any Good</option>
+            <option value="any evil">Any Evil</option>
+            <option value="lawful good">Lawful Good</option>
+            <option value="lawful neutral">Lawful Neutral</option>
+            <option value="lawful evil">Lawful Evil</option>
+            <option value="lawful good">Neutral Good</option>
+            <option value="lawful neutral">True Neutral</option>
+            <option value="lawful evil">Neutral Evil</option>
+            <option value="lawful good">Chaotic Good</option>
+            <option value="lawful neutral">Chaotic Neutral</option>
+            <option value="lawful evil">Chaotic Evil</option>
+            <option value="other">Other</option>
+          </select>
         </div>
       </div>
     </main>
