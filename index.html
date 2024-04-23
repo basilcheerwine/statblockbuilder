@@ -78,6 +78,14 @@
       display:inline;
     }
 
+    .bundle {
+      display:block;
+    }
+
+    .bundled-row {
+      display:inline;
+    }
+
     #container {
       width:75%;
       max-width:1200px;
@@ -204,24 +212,25 @@
             <option value="chaotic evil">Chaotic Evil</option>
             <option value="other">Other</option>
           </select><br>
-          <span style="display:block">Strength: <input class="num-box" type="text" placeholder="10"><br>
-          <label for="strp"> Proficient?</label>
-          <input type="checkbox" id="strp" name="strp" value="strp"></span>&nbsp;&nbsp;&nbsp;
-          Dexterity: <input class="num-box" type="text" placeholder="10">
+          <div class="bundled-row">
+          <div class="bundle">Strength: <input class="num-box" type="text" placeholder="10">
+          <label for="strp"> Proficient?</label></div>
+          <input type="checkbox" id="strp" name="strp" value="strp">
+          <div class="bundle"></div>Dexterity: <input class="num-box" type="text" placeholder="10">
           <label for="dexp"> Proficient?</label>
-          <input type="checkbox" id="dexp" name="dexp" value="dexp">&nbsp;&nbsp;&nbsp;
-          Constitution: <input class="num-box" type="text" placeholder="10">
+          <input type="checkbox" id="dexp" name="dexp" value="dexp"></div>
+          <div class="bundle"></div>Constitution: <input class="num-box" type="text" placeholder="10">
           <label for="conp"> Proficient?</label>
-          <input type="checkbox" id="conp" name="conp" value="conp">&nbsp;&nbsp;&nbsp;
-          Intelligence: <input class="num-box" type="text" placeholder="10">
+          <input type="checkbox" id="conp" name="conp" value="conp"></div>
+          <div class="bundle"></div>Intelligence: <input class="num-box" type="text" placeholder="10">
           <label for="intp"> Proficient?</label>
-          <input type="checkbox" id="intp" name="intp" value="intp">&nbsp;&nbsp;&nbsp;
-          Wisdom: <input class="num-box" type="text" placeholder="10">
+          <input type="checkbox" id="intp" name="intp" value="intp"></div>
+          <div class="bundle"></div>Wisdom: <input class="num-box" type="text" placeholder="10">
           <label for="wisp"> Proficient?</label>
-          <input type="checkbox" id="wisp" name="wisp" value="wisp">&nbsp;&nbsp;&nbsp;
-          Charisma: <input class="num-box" type="text" placeholder="10">
+          <input type="checkbox" id="wisp" name="wisp" value="wisp"></div>
+          <div class="bundle"></div>Charisma: <input class="num-box" type="text" placeholder="10">
           <label for="chap"> Proficient?</label>
-          <input type="checkbox" id="chap" name="chap" value="chap"><br>
+          <input type="checkbox" id="chap" name="chap" value="chap"></div></div>
           Hit Dice: <input class="num-box" type="text" placeholder="2">&nbsp;&nbsp;&nbsp;
           <label for="mon-armor">Armor: </label>
           <select name="mon-armor" id="mon-armor">
