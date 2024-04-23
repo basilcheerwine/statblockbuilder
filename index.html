@@ -86,6 +86,10 @@
       padding:3px;
     }
 
+    th, td {
+      border:1px solid #333333;
+    }
+
     #container {
       width:75%;
       max-width:1200px;
@@ -261,7 +265,7 @@
           <input type="button" onclick="alert('Immune')" value="Immune">&nbsp;&nbsp;&nbsp;
           <input type="button" onclick="alert('Vulnerable')" value="Vulnerable">&nbsp;&nbsp;&nbsp;
           <label for="conditions">Condition Immunities: </label>
-          <select name="conditions" id="conditions" multiple>
+          <select name="conditions" id="conditions">
             <option value="blinded">Blinded</option>
             <option value="charmed">Charmed</option>
             <option value="deafened">Deafened</option>
@@ -278,7 +282,8 @@
             <option value="stunned">Stunned</option>
             <option value="unconscious">Unconscious</option>
             <option value="other">Other</option>
-          </select></p>
+          </select>
+          <input type="button" onclick="alert('Add')" value="Add"></p>
           <label for="skills">Skills: </label>
           <select name="skills" id="skills">
             <option value="acrobatics">Acrobatics</option>
