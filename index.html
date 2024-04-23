@@ -79,8 +79,8 @@
     }
 
     table {
-      width:500px;
-      border:0px;
+      width:650px;
+      border:1px solid gray;
       text-align:left;
       vertical-align:center;
       padding:3px;
@@ -145,9 +145,9 @@
   <body>
     <main>
       <div id="container">
-        <h1 style="text-align:center;margin-top:10px;">Stat Block Builder</h1>
+        <h1 style="text-align:center;margin-top:20px;">Stat Block Builder</h1>
         <div id="intro">
-        <label for="presets">Select a preset: </label>
+        <label for="presets" style="text-align:center">Select a preset: </label>
           <select name="presets" id="presets">
             <option value="default">Default</option>
             <option value="ghost">Ghost</option>
@@ -259,7 +259,26 @@
           </select>&nbsp;&nbsp;&nbsp;
           <input type="button" onclick="alert('Resistant')" value="Resistant">&nbsp;&nbsp;&nbsp;
           <input type="button" onclick="alert('Immune')" value="Immune">&nbsp;&nbsp;&nbsp;
-          <input type="button" onclick="alert('Vulnerable')" value="Vulnerable"></p>
+          <input type="button" onclick="alert('Vulnerable')" value="Vulnerable">&nbsp;&nbsp;&nbsp;
+          <label for="conditions">Condition Immunities: </label>
+          <select name="conditions" id="conditions" multiple>
+            <option value="blinded">Blinded</option>
+            <option value="charmed">Charmed</option>
+            <option value="deafened">Deafened</option>
+            <option value="exhaustion">Exhaustion</option>
+            <option value="frightened">Frightened</option>
+            <option value="grappled">Grappled</option>
+            <option value="incapacitated">Incapacitated</option>
+            <option value="invisible">Invisible</option>
+            <option value="paralyzed">Paralyzed</option>
+            <option value="petrified">Petrified</option>
+            <option value="poisoned">Poisoned</option>
+            <option value="prone">Prone</option>
+            <option value="restrained">Restrained</option>
+            <option value="stunned">Stunned</option>
+            <option value="unconscious">Unconscious</option>
+            <option value="other">Other</option>
+          </select></p>
           <label for="skills">Skills: </label>
           <select name="skills" id="skills">
             <option value="acrobatics">Acrobatics</option>
