@@ -196,25 +196,25 @@
             <option value="chaotic evil">Chaotic Evil</option>
             <option value="other">Other</option>
           </select><br>
-          Strength: <input class="num-box" type="text" placeholder="10">&nbsp;&nbsp;&nbsp;
+          Strength: <input class="num-box" type="text" placeholder="10">
           <label for="strp"> Proficient?</label>
-          <input type="checkbox" id="strp" name="strp" value="strp">
-          Dexterity: <input class="num-box" type="text" placeholder="10">&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="strp" name="strp" value="strp">&nbsp;&nbsp;&nbsp;
+          Dexterity: <input class="num-box" type="text" placeholder="10">
           <label for="dexp"> Proficient?</label>
-          <input type="checkbox" id="dexp" name="dexp" value="dexp">
-          Constitution: <input class="num-box" type="text" placeholder="10">&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="dexp" name="dexp" value="dexp">&nbsp;&nbsp;&nbsp;
+          Constitution: <input class="num-box" type="text" placeholder="10">
           <label for="conp"> Proficient?</label>
-          <input type="checkbox" id="conp" name="conp" value="conp">
-          Intelligence: <input class="num-box" type="text" placeholder="10">&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="conp" name="conp" value="conp">&nbsp;&nbsp;&nbsp;
+          Intelligence: <input class="num-box" type="text" placeholder="10">
           <label for="intp"> Proficient?</label>
-          <input type="checkbox" id="intp" name="intp" value="intp">
-          Wisdom: <input class="num-box" type="text" placeholder="10">&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="intp" name="intp" value="intp">&nbsp;&nbsp;&nbsp;
+          Wisdom: <input class="num-box" type="text" placeholder="10">
           <label for="wisp"> Proficient?</label>
-          <input type="checkbox" id="wisp" name="wisp" value="wisp">
-          Charisma: <input class="num-box" type="text" placeholder="10"><br>
+          <input type="checkbox" id="wisp" name="wisp" value="wisp">&nbsp;&nbsp;&nbsp;
+          Charisma: <input class="num-box" type="text" placeholder="10">
           <label for="chap"> Proficient?</label>
-          <input type="checkbox" id="chap" name="chap" value="chap">
-          Hit Dice: <input class="num-box" type="text" placeholder="2">
+          <input type="checkbox" id="chap" name="chap" value="chap"><br>
+          Hit Dice: <input class="num-box" type="text" placeholder="2">&nbsp;&nbsp;&nbsp;
           <label for="mon-armor">Armor: </label>
           <select name="mon-armor" id="mon-armor">
             <option value="blank"></option>
@@ -225,12 +225,31 @@
           </select>&nbsp;&nbsp;&nbsp;
           AC bonus: <input class="num-box" type="text" placeholder="0">&nbsp;&nbsp;&nbsp;
           Speed: <input class="num-box" type="text" placeholder="30">&nbsp;&nbsp;&nbsp;
-          Fly: <input class="num-box" type="text" placeholder="0">&nbsp;&nbsp;&nbsp;
+          Fly: <input class="num-box" type="text" placeholder="0">
           <label for="vehicle1"> Hover?</label>
-          <input type="checkbox" id="fly" name="fly" value="hover">
+          <input type="checkbox" id="fly" name="fly" value="hover">&nbsp;&nbsp;&nbsp;
           Swim: <input class="num-box" type="text" placeholder="0">&nbsp;&nbsp;&nbsp;
           Burrow: <input class="num-box" type="text" placeholder="0"><br>
-
+          <label for="damages">Damage Immunities and Resistances: </label>
+          <select name="damages" id="damages">
+            <option value="acid">Acid</option>
+            <option value="bludgeoning">Bludgeoning</option>
+            <option value="cold">Cold</option>
+            <option value="fire">Fire</option>
+            <option value="force">Force</option>
+            <option value="lightning">Lightning</option>
+            <option value="necrotic">Necrotic</option>
+            <option value="piercing">Piercing</option>
+            <option value="poison">Poison</option>
+            <option value="radiant">Radiant</option>
+            <option value="slashing">Slashing</option>
+            <option value="thunder">Thunder</option>
+            <option value="nonmagic">Nonmagical weapons</option>
+            <option value="nonsilver">Non-silvered weapons</option>
+          </select>&nbsp;&nbsp;&nbsp;
+          <input type="button" onclick="alert('Resistant')" value="Resistant">&nbsp;&nbsp;&nbsp;
+          <input type="button" onclick="alert('Immune')" value="Immune">&nbsp;&nbsp;&nbsp;
+          <input type="button" onclick="alert('Vulnerable')" value="Vulnerable">
         </div>
         <div id="spacer"></div>
       </div>
