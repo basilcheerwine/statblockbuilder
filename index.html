@@ -10,15 +10,21 @@
     
     @font-face {
 		  font-family: "Mr Eaves Small Caps";
-		  src: url("https://benlk.github.io/solbera-dnd-fonts//Mr Eaves/Mr Eaves Small Caps.otf") format("opentype");
+		  src: url("https://benlk.github.io/solbera-dnd-fonts/Mr Eaves/Mr Eaves Small Caps.otf") format("opentype");
 		  font-weight: normal;
 	  }
 
     @font-face {
 		  font-family: "Scaly Sans";
-		  src: url("https://benlk.github.io/solbera-dnd-fonts//Scaly Sans/Scaly Sans.otf") format("opentype");
+		  src: url("https://benlk.github.io/solbera-dnd-fonts/Scaly Sans/Scaly Sans.otf") format("opentype");
 		  font-weight: normal;
 	  }
+
+    @font-face {
+      font-family: "Scaly Sans Caps";
+      src: url("https://benlk.github.io/solbera-dnd-fonts/Scaly Sans Caps/Scaly Sans Caps.otf") format("opentype");
+      font-weight: normal;
+    }
 
     body {
       font-family:'Scaly Sans';
@@ -35,7 +41,7 @@
     }
 
     h2 {
-      font-family:'Mr Eaves Small Caps';
+      font-family:'Scaly Sans Caps';
       font-size:13px;
       text-align:left;
       color:darkred;
@@ -64,7 +70,8 @@
             <option value="skeleton">Skeleton</option>
             <option value="vampire">Vampire</option>
           </select>
-        <p>Now enter hit points: <input class="num-box" type="text" placeholder="22"></p>
+        <h2>Stats</h2>
+          <p>Now enter hit points: <input class="num-box" type="text" placeholder="22"></p>
     </main>
   </body>
 </html>
