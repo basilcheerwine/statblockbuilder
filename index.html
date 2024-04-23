@@ -27,11 +27,11 @@
     }
 
     .dropdown {
-      width:30px;
+      width:100px;
       height:auto;
       border:1px solid black;
       padding:2px;
-      fill-color:gray;
+      background:gray;
     }
 
     .num-box {
@@ -39,7 +39,7 @@
       height:auto;
       border:1px solid black;
       padding:2px;
-      fill-color:lightgray;
+      background:lightgray;
       text-align:center;
 
     }
@@ -49,8 +49,10 @@
   <body>
     <main>
         <h1>Stat Block Builder</h1>
-        <h2>Select a preset:</h2>
-        <div class="dropdown">Preset Dropdown</div>
+        <div style="align:center">
+          <h2>Select a preset:</h2>
+          <div class="dropdown">Preset Dropdown</div>
+        </div>
         <p>Now enter hit points:</p>
         <div class="num-box">22</div>
     </main>
