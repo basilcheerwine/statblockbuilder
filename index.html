@@ -20,10 +20,6 @@
       color:darkred;
     }
 
-    h1:hover {
-      color:blue;
-    }
-
     h2 {
       font-family:'Times New Roman';
       font-size:13px;
@@ -31,43 +27,13 @@
       color:darkred;
     }
     
-    .dropdown-button {
-      width:200px;
-      height:auto;
-      border:1px solid black;
-      padding:2px;
-      background:lightyellow;
-      font-size:11px;
-    }
-    
     .dropdown {
-      position:relative;
-      display:inline-block;
       width:200px;
       height:auto;
       border:1px solid black;
       padding:2px;
       background:lightyellow;
       font-size:11px;
-    }
-
-    .dropdown-content {
-      display:none;
-      position:absolute;
-      border:1px solid black;
-    }
-
-    .dropdown-content a{
-      display:block;
-      text-decoration:none;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown:hover {
-      background:lightblue;
     }
 
     .num-box {
@@ -90,14 +56,15 @@
   <body>
     <main>
         <h1>Stat Block Builder</h1>
-        <p>Select a preset: </p><span class dropdown>
-          <button type="button" class="dropdown-button">Default</button>
-          <span class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </span>
-        </span>
+        <div class="dropdown">
+        <label for="presets">Select a preset: </label>
+          <select name="presets" id="presets">
+            <option value="default">Default</option>
+            <option value="ghost">Ghost</option>
+            <option value="skeleton">Skeleton</option>
+            <option value="vampire">Vampire</option>
+          </select>
+        </div>
         <p>Now enter hit points: <input class="num-box" type="text" placeholder="22"></p>
     </main>
   </body>
