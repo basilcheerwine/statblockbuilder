@@ -26,22 +26,30 @@
       text-align:left;
       color:darkred;
     }
-
-    .dropdown {
-      width:100px;
+    
+    .dropdown-button {
+      width:200px;
       height:auto;
       border:1px solid black;
       padding:2px;
       background:lightyellow;
+      font-size:11px;
+    }
+    
+    .dropdown {
+      position:relative;
       display:inline-block;
-      position:absolute;
     }
 
     .dropdown-content {
       display:none;
-      text-decoration:none;
-      position:relative;
+      position:absolute;
+      border:1px solid black;
     }
+
+    .dropdown-content a{
+      display:block;
+      text-decoration:none;
 
     .dropdown:hover .dropdown-content {
       display: block;
@@ -50,14 +58,19 @@
     .num-box {
       width:20px;
       height:auto;
+      font-size:11px;
       border:1px solid black;
       padding:2px;
       background:lightgray;
       text-align:center;
-
     }
 
   </style>
+
+  <script>
+    
+  </script>
+    
   </head>
   <body>
     <main>
