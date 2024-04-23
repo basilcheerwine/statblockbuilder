@@ -62,8 +62,16 @@
       display:inline;
     }
 
-    .text-box {
+    .text-box-long {
       width:150px;
+      height:auto;
+      font-size:11px;
+      text-align:left;
+      display:inline;
+    }
+
+    .text-box-short {
+      width:75px;
       height:auto;
       font-size:11px;
       text-align:left;
@@ -146,7 +154,7 @@
         </div>
         <div id="stats">
         <h2>Stats:</h2>
-          Monster Name: <input class="text-box" type="text" placeholder="Default Monster Name">&nbsp;&nbsp;&nbsp;
+          Monster Name: <input class="text-box-long" type="text" placeholder="Default Monster Name">&nbsp;&nbsp;&nbsp;
           <label for="mon-size">Size: </label>
           <select name="mon-size" id="mon-size">
             <option value="blank"></option>
@@ -176,7 +184,7 @@
             <option value="plant">Plant</option>
             <option value="undead">Undead</option>
           </select>&nbsp;&nbsp;&nbsp;
-          Tag: <input class="text-box" type="text" placeholder="tag">&nbsp;&nbsp;&nbsp;
+          Tag: <input class="text-box-short" type="text" placeholder="tag">&nbsp;&nbsp;&nbsp;
           <label for="mon-align">Alignment: </label>
           <select name="mon-align" id="mon-align">
             <option value="blank"></option>
