@@ -212,25 +212,43 @@
             <option value="chaotic evil">Chaotic Evil</option>
             <option value="other">Other</option>
           </select><br>
-          <div class="bundled-row">
-          <span class="bundle">Strength: <input class="num-box" type="text" placeholder="10"><br>
-          <label for="strp"> Proficient?</label>
-          <input type="checkbox" id="strp" name="strp" value="strp"></span>
-          <span class="bundle">Dexterity: <input class="num-box" type="text" placeholder="10"><br>
-          <label for="dexp"> Proficient?</label>
-          <input type="checkbox" id="dexp" name="dexp" value="dexp"></span>
-          <span class="bundle">Constitution: <input class="num-box" type="text" placeholder="10"><br>
-          <label for="conp"> Proficient?</label>
-          <input type="checkbox" id="conp" name="conp" value="conp"></span>
-          <span class="bundle">Intelligence: <input class="num-box" type="text" placeholder="10"><br>
-          <label for="intp"> Proficient?</label>
-          <input type="checkbox" id="intp" name="intp" value="intp"></span>
-          <span class="bundle">Wisdom: <input class="num-box" type="text" placeholder="10"><br>
-          <label for="wisp"> Proficient?</label>
-          <input type="checkbox" id="wisp" name="wisp" value="wisp"></span>
-          <span class="bundle">Charisma: <input class="num-box" type="text" placeholder="10"><br>
-          <label for="chap"> Proficient?</label>
-          <input type="checkbox" id="chap" name="chap" value="chap"></span></div>
+          <table>
+            <tr>
+              <th>Ability</th>
+              <th>Strength</th>
+              <th>Dexterity</th>
+              <th>Constitution</th>
+              <th>Intelligence</th>
+              <th>Wisdom</th>
+              <th>Charisma</th>
+            </tr>
+            <tr>
+              <th>Score</th>
+              <th><input class="num-box" type="text" placeholder="10"></th>
+              <th><input class="num-box" type="text" placeholder="10"></th>
+              <th><input class="num-box" type="text" placeholder="10"></th>
+              <th><input class="num-box" type="text" placeholder="10"></th>
+              <th><input class="num-box" type="text" placeholder="10"></th>
+              <th><input class="num-box" type="text" placeholder="10"></th>
+            </tr>
+            <tr>
+              <th>Modifier</th>
+              <th>#</th>
+              <th>#</th>
+              <th>#</th>
+              <th>#</th>
+              <th>#</th>
+              <th>#</th>
+            </tr>
+            <tr>
+              <th>Proficient?</th>
+              <th><input type="checkbox" id="strp" name="strp" value="strp"></th>
+              <th><input type="checkbox" id="dexp" name="dexp" value="dexp"></th>
+              <th><input type="checkbox" id="conp" name="conp" value="conp"></th>
+              <th><input type="checkbox" id="intp" name="intp" value="intp"></th>
+              <th><input type="checkbox" id="wisp" name="wisp" value="wisp"></th>
+              <th><input type="checkbox" id="chap" name="chap" value="chap"></th>
+          </table>
           Hit Dice: <input class="num-box" type="text" placeholder="2">&nbsp;&nbsp;&nbsp;
           <label for="mon-armor">Armor: </label>
           <select name="mon-armor" id="mon-armor">
