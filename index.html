@@ -35,6 +35,16 @@
       background:lightyellow;
     }
 
+    .dropdown-content {
+      display:none;
+      text-decoration:none;
+      position:relative;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
     .num-box {
       width:20px;
       height:auto;
@@ -50,14 +60,13 @@
   <body>
     <main>
         <h1>Stat Block Builder</h1>
-        <button onclick="", class="dropdown">Select a preset:</button>
+        <button class="dropdown">Select a preset:</button>
           <div class="dropdown-content">
             <a href="#">Link 1</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
           </div>
-        <p>Now enter hit points:</p>
-        <div class="num-box"><input type="text" placeholder="22"><br></div>
+        <p>Now enter hit points: <input class="num-box" type="text" placeholder="22"></p>
     </main>
   </body>
 </html>
