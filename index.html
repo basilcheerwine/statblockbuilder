@@ -323,14 +323,8 @@
                 <option value="stunned">Stunned</option>
                 <option value="unconscious">Unconscious</option>
                 <option value="other">Other</option>
-              </select><br>
-              <input type="button" onclick="alert('Add')" value="Add">
+              </select> <input type="button" onclick="alert('Add')" value="Add">
             </td>
-          </tr>
-        </table>
-          <div class="spacer"></div>
-        <table>
-          <tr>
             <td><label for="skills">Skills:</label><br>
               <select name="skills" id="skills">
                 <option value="acrobatics">Acrobatics</option>
@@ -351,12 +345,33 @@
                 <option value="sleight of hand">Sleight of Hand</option>
                 <option value="stealth">Stealth</option>
                 <option value="survival">Survival</option>
-              </select>&nbsp;&nbsp;&nbsp;
+              </select><br>
               <input type="button" onclick="alert('Proficient')" value="Proficient">&nbsp;&nbsp;&nbsp;
               <input type="button" onclick="alert('Expertise')" value="Expertise">
             </td>
-            <td>Languages:<br>
-              <input class="text-box-long" type="text" placeholder="Languages"><br>
+            <td><label for="languages">Languages:</label><br>
+              <select name="languages" id="languages">
+                <option value="common">Common</option>
+                <option value="abyssal">Abyssal</option>
+                <option value="celestial">Celestial</option>
+                <option value="deep speech">Deep Speech</option>
+                <option value="draconic">Draconic</option>
+                <option value="dwarven">Dwarven</option>
+                <option value="elvish">Elvish</option>
+                <option value="giant">Giant</option>
+                <option value="gnomish">Gnomish</option>
+                <option value="goblin">Goblin</option>
+                <option value="halfling">Halfling</option>
+                <option value="infernal">Infernal</option>
+                <option value="orcish">Orcish</option>
+                <option value="primordial">Primordial</option>
+                <option value="sylvan">Sylvan</option>
+                <option value="undercommon">Undercommon</option>
+                <option value="void speech">Void Speech</option>
+                <option value="telepathy">Telepathy</option>
+                <option value="other">Other</option>
+              </select> <input type="button" onclick="alert('Add')" value="Add"><br>
+              <input class="text-box-short" type="text" placeholder="Other"><br>
               Telepathy range: <input class="num-box" type="text" placeholder="0">
             </td>
           </tr>
