@@ -244,8 +244,9 @@
           <div class="spacer"></div>
           <table>
             <tr>
-              <td>Hit Dice:<br>
-              <input class="num-box" type="text" placeholder="2"></td> 
+              <td>Hit Dice: <input class="num-box" type="text" placeholder="2"></td> 
+            <td><label for="customhp">Custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp"><br>
+              <input type="text" class="num-box" placeholder="0"></td>
             <td><label for="mon-armor">Armor:</label><br>
               <select name="mon-armor" id="mon-armor">
                 <option value="blank"></option>
@@ -254,9 +255,8 @@
                 <option value="type3">Type 3</option>
                 <option value="type4">Type 4</option>
               </select></td>
-            <td>AC bonus:<br>
-              <input class="num-box" type="text" placeholder="0"></td>
-            <td><label for="shield">Shield?</label> <input type="checkbox" id="shield" name="shield" value="shield"></td>
+            <td>AC bonus: <input class="num-box" type="text" placeholder="0"><br>
+              <label for="shield">Shield?</label> <input type="checkbox" id="shield" name="shield" value="shield"></td>
             </tr>
         </table>
           <div class="spacer"></div>
