@@ -161,7 +161,7 @@
       <div id="container">
         <h1 style="text-align:center;margin-top:20px;">Stat Block Builder</h1>
         <div id="intro">
-        <label for="presets">Select a preset: </label>&nbsp;&nbsp;&nbsp;
+        <label for="presets">Select a preset: </label>&nbsp;
           <select name="presets" id="presets" style="margin:auto">
             <option value="default">Default</option>
             <option value="ghost">Ghost</option>
@@ -283,7 +283,7 @@
         
         <table>
           <tr>
-            <td><label for="damages">Damage Immunities and Resistances:</label><br>
+            <td><label for="damages">Damage Types:</label><br>
               <select name="damages" id="damages">
                 <option value="acid">Acid</option>
                 <option value="bludgeoning">Bludgeoning</option>
@@ -301,11 +301,11 @@
                 <option value="nonmagic">Nonmagical weapons</option>
                 <option value="nonsilver">Non-silvered weapons</option>
               </select><br>
-              <input type="button" onclick="alert('Resistant')" value="Resistant">&nbsp;&nbsp;&nbsp;
-              <input type="button" onclick="alert('Immune')" value="Immune">&nbsp;&nbsp;&nbsp;
+              <input type="button" onclick="alert('Resistant')" value="Resistant">&nbsp;
+              <input type="button" onclick="alert('Immune')" value="Immune">&nbsp;
               <input type="button" onclick="alert('Vulnerable')" value="Vulnerable">
             </td>
-            <td><label for="conditions">Condition Immunities:</label><br>
+            <td><label for="conditions">Conditions:</label><br>
               <select name="conditions" id="conditions">
                 <option value="blinded">Blinded</option>
                 <option value="charmed">Charmed</option>
@@ -323,7 +323,7 @@
                 <option value="stunned">Stunned</option>
                 <option value="unconscious">Unconscious</option>
                 <option value="other">Other</option>
-              </select> <input type="button" onclick="alert('Add')" value="Add">
+              </select> <input type="button" onclick="alert('Immune')" value="Immune">
             </td>
             <td><label for="skills">Skills:</label><br>
               <select name="skills" id="skills">
@@ -346,7 +346,7 @@
                 <option value="stealth">Stealth</option>
                 <option value="survival">Survival</option>
               </select><br>
-              <input type="button" onclick="alert('Proficient')" value="Proficient">&nbsp;&nbsp;&nbsp;
+              <input type="button" onclick="alert('Proficient')" value="Proficient">&nbsp;
               <input type="button" onclick="alert('Expertise')" value="Expertise">
             </td>
             <td><label for="languages">Languages:</label><br>
@@ -370,7 +370,9 @@
                 <option value="void speech">Void Speech</option>
                 <option value="telepathy">Telepathy</option>
                 <option value="other">Other</option>
-              </select> <input type="button" onclick="alert('Add')" value="Add"><br>
+              </select> 
+              <input type="button" onclick="alert('Speaks')" value="Speaks">&nbsp;
+              <input type="button" onclick="alert('Understands')" value="Understands"><br>
               <input class="text-box-short" type="text" placeholder="Other"><br>
               Telepathy range: <input class="num-box" type="text" placeholder="0">
             </td>
