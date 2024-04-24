@@ -214,6 +214,7 @@
                 <input class="text-box-short" type="text" placeholder="alignment"></td>
               </tr>
           </table>
+          <div class="spacer"></div>
           <table>
             <tr>
               <td>Strength</td>
@@ -224,21 +225,22 @@
               <td>Charisma</td>
             </tr>
             <tr>
-              <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
-              <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
-              <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
-              <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
-              <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
-              <td><input class="num-box" type="text" placeholder="10"> (Mod)</td>
+              <td><input class="num-box" type="text" placeholder="10"></td>
+              <td><input class="num-box" type="text" placeholder="10"></td>
+              <td><input class="num-box" type="text" placeholder="10"></td>
+              <td><input class="num-box" type="text" placeholder="10"></td>
+              <td><input class="num-box" type="text" placeholder="10"></td>
+              <td><input class="num-box" type="text" placeholder="10"></td>
             </tr>
             <tr>
-              <td><label for="strp">Proficient?</label> <input type="checkbox" id="strp" name="strp" value="strp"></td>
-              <td><label for="dexp">Proficient?</label> <input type="checkbox" id="dexp" name="dexp" value="dexp"></td>
-              <td><label for="conp">Proficient?</label> <input type="checkbox" id="conp" name="conp" value="conp"></td>
-              <td><label for="intp">Proficient?</label> <input type="checkbox" id="intp" name="intp" value="intp"></td>
-              <td><label for="wisp">Proficient?</label> <input type="checkbox" id="wisp" name="wisp" value="wisp"></td>
-              <td><label for="chap">Proficient?</label> <input type="checkbox" id="chap" name="chap" value="chap"></td>
+              <td>Mod</td>
+              <td>Mod</td>
+              <td>Mod</td>
+              <td>Mod</td>
+              <td>Mod</td>
+              <td>Mod</td>
           </table>
+          <div class="spacer"></div>
           <table>
             <tr>
               <td>Hit Dice:<br>
@@ -256,16 +258,8 @@
             <td><label for="shield">Shield?</label> <input type="checkbox" id="shield" name="shield" value="shield"></td>
             </tr>
         </table>
-        <table>
-          <tr>
-            <td>Speed: <input class="num-box" type="text" placeholder="30"></td>
-            <td>Fly: <input class="num-box" type="text" placeholder="0"><br>
-              <label for="fly">Hover?</label> <input type="checkbox" id="fly" name="fly" value="hover"></td>
-            <td>Swim: <input class="num-box" type="text" placeholder="0"></td>
-            <td>Burrow: <input class="num-box" type="text" placeholder="0"></td>
-            <td>Climb: <input class="num-box" type="text" placeholder="0"></td>
-          </tr>
-        </table>
+          <div class="spacer"></div>
+        
         <table>
           <tr>
             <td><label for="damages">Damage Immunities and Resistances:</label><br>
@@ -290,6 +284,17 @@
               <input type="button" onclick="alert('Immune')" value="Immune">&nbsp;&nbsp;&nbsp;
               <input type="button" onclick="alert('Vulnerable')" value="Vulnerable">
             </td>
+            <td><label for="saves">Saving Throw Proficiencies:</label><br>
+              <select name="saves" id="saves">
+                <option value="strength">Strength</option>
+                <option value="dexterity">Dexterity</option>
+                <option value="constitution">Constitution</option>
+                <option value="intelligence">Intelligence</option>
+                <option value="wisdom">Wisdom</option>
+                <option value="charisma">Charisma</option>
+              </select><br>
+              <input type="button" onclick="alert('Add')" value="Add">
+            </td>
             <td><label for="conditions">Condition Immunities:</label><br>
               <select name="conditions" id="conditions">
                 <option value="blinded">Blinded</option>
@@ -313,6 +318,7 @@
             </td>
           </tr>
         </table>
+          <div class="spacer"></div>
         <table>
           <tr>
             <td><label for="skills">Skills:</label><br>
@@ -344,6 +350,7 @@
             </td>
           </tr>
         </table>
+          <div class="spacer"></div>
         <table>
           <tr>
             <td>Darkvision: <input class="num-box" type="text" placeholder="0"></td>
@@ -353,8 +360,19 @@
             <td>Truesight: <input class="num-box" type="text" placeholder="0"></td>
           </tr>
         </table>
-        </div>
-        <div id="spacer">-</div>
+          <div class="spacer"></div>
+        <table>
+          <tr>
+            <td>Speed: <input class="num-box" type="text" placeholder="30"></td>
+            <td>Fly: <input class="num-box" type="text" placeholder="0"><br>
+              <label for="fly">Hover?</label> <input type="checkbox" id="fly" name="fly" value="hover"></td>
+            <td>Swim: <input class="num-box" type="text" placeholder="0"></td>
+            <td>Burrow: <input class="num-box" type="text" placeholder="0"></td>
+            <td>Climb: <input class="num-box" type="text" placeholder="0"></td>
+          </tr>
+        </table>
+        <div id="spacer"></div>
+      </div>        
       </div>
     </main>
   </body>
