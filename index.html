@@ -208,8 +208,8 @@
                   <option value="plant">Plant</option>
                   <option value="undead">Undead</option>
                   <option value="other">Other</option>
-                </select><br>
-                Tag:<br>
+                </select></td>
+                <td>Tag:<br>
                 <input class="text-box-short" type="text" placeholder="tag"></td>
               <td>Alignment:<br>
                 <input class="text-box-short" type="text" placeholder="alignment"></td>
@@ -244,8 +244,19 @@
           <div class="spacer"></div>
           <table>
             <tr>
+              <td><label for="saves">Saving Throw Proficiencies:</label><br>
+                <select name="saves" id="saves">
+                  <option value="strength">Strength</option>
+                  <option value="dexterity">Dexterity</option>
+                  <option value="constitution">Constitution</option>
+                  <option value="intelligence">Intelligence</option>
+                  <option value="wisdom">Wisdom</option>
+                  <option value="charisma">Charisma</option>
+                </select><br>
+                <input type="button" onclick="alert('Add')" value="Add">
+              </td>
               <td>Hit Dice: <input class="num-box" type="text" placeholder="2"><br>
-                <label for="customhp">Custom HP?</label></td>
+                <label for="customhp">Custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp"></td>
               <td><label for="mon-armor">Armor:</label><br>
                 <select name="mon-armor" id="mon-armor">
                   <option value="blank"></option>
@@ -284,17 +295,6 @@
               <input type="button" onclick="alert('Resistant')" value="Resistant">&nbsp;&nbsp;&nbsp;
               <input type="button" onclick="alert('Immune')" value="Immune">&nbsp;&nbsp;&nbsp;
               <input type="button" onclick="alert('Vulnerable')" value="Vulnerable">
-            </td>
-            <td><label for="saves">Saving Throw Proficiencies:</label><br>
-              <select name="saves" id="saves">
-                <option value="strength">Strength</option>
-                <option value="dexterity">Dexterity</option>
-                <option value="constitution">Constitution</option>
-                <option value="intelligence">Intelligence</option>
-                <option value="wisdom">Wisdom</option>
-                <option value="charisma">Charisma</option>
-              </select><br>
-              <input type="button" onclick="alert('Add')" value="Add">
             </td>
             <td><label for="conditions">Condition Immunities:</label><br>
               <select name="conditions" id="conditions">
