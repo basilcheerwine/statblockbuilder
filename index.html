@@ -270,8 +270,7 @@
       }
     }
 
-    function blindBeyond() {
-      var bsrange = document.getElementById("bsight");
+    function blindBeyond(bsrange) {
       var bbyond = document.getElementById("blbeyond");
       if (bsrange > 0){
         bbyond.style.display = "inline";
@@ -513,8 +512,8 @@
         <table>
           <tr>
             <td>Darkvision: <input class="num-box" type="text" value="0"></td>
-            <td>Blindsight: <input class="num-box" type="text" value="0" id="bsight" onchange="blindBeyond()"><br>
-              <label for="bs">Blind beyond?</label> <input type="checkbox" id="blbeyond" name="bs" value="blindsight"></td>
+            <td>Blindsight: <input class="num-box" type="text" value="0" id="bsight" onchange="blindBeyond(this.value)"><br>
+              <label for="blbeyond">Blind beyond?</label> <input type="checkbox" id="blbeyond" name="bs" value="blindsight"></td>
             <td>Tremorsense: <input class="num-box" type="text" value="0"></td>
             <td>Truesight: <input class="num-box" type="text" value="0"></td>
           </tr>
