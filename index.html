@@ -157,14 +157,6 @@
       height:100px;
     }
 
-    #hdhide {
-      display:inline;
-    }
-
-    #hdshow, #lairbtn, #legbtn {
-      display:none;
-    }
-
     #container {
       width:90%;
       max-width:1200px;
@@ -233,6 +225,14 @@
       height:10px;
     }
 
+    #hdhide, #bsight {
+      display:inline;
+    }
+
+    #hdshow, #lairbtn, #legbtn, #blbeyond {
+      display:none;
+    }
+
   </style>
 
   <script>
@@ -270,6 +270,15 @@
       }
     }
 
+    function blindBeyond() {
+      var bsrange = document.getElementById("bsight");
+      var bbyond = document.getElementById("blbeyond");
+      if (bsrange > 0){
+        bbyond.style.display = "inline";
+      } else {
+        bbyond.style.display = "none";
+      }
+    }
 
   </script>
     
@@ -504,8 +513,8 @@
         <table>
           <tr>
             <td>Darkvision: <input class="num-box" type="text" value="0"></td>
-            <td>Blindsight: <input class="num-box" type="text" value="0"><br>
-              <label for="bs">Blind beyond?</label> <input type="checkbox" id="bs" name="bs" value="blindsight"></td>
+            <td>Blindsight: <input class="num-box" type="text" value="0" id="bsight" onchange="blindBeyond()"><br>
+              <p id="blbeyond"><label for="bs">Blind beyond?</label> <input type="checkbox" id="bs" name="bs" value="blindsight"></p></td>
             <td>Tremorsense: <input class="num-box" type="text" value="0"></td>
             <td>Truesight: <input class="num-box" type="text" value="0"></td>
           </tr>
