@@ -225,7 +225,7 @@
       height:10px;
     }
 
-    #hdhide, #bsight {
+    #hdhide {
       display:inline;
     }
 
@@ -271,7 +271,7 @@
     }
 
     function blindBeyond() {
-      var bsrange = document.getElementById("bsight");
+      var bsrange = document.getElementById("bsight").value;
       var bbyond = document.getElementById("blbeyond");
       if (bsrange > 0){
         bbyond.style.display = "inline";
