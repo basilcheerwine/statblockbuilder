@@ -242,7 +242,7 @@
       display:inline;
     }
 
-    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp, #othlang, #telep {
+    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp, #othlang {
       display:none;
     }
 
@@ -326,16 +326,10 @@
     function langOptions() {
       var langch = document.getElementById("languages").value;
       var otherlan = document.getElementById("othlang");
-      var telrange = document.getElementById("telep")
       if (langch == "other"){
         otherlan.style.display = "inline";
-        telrange.style.display = "none";
-      } else if (langch == "telepathy"){
-        otherlan.style.display = "none";
-        telrange.style.display = "inline";
       } else {
         otherlan.style.display = "none";
-        telrange.style.display = "none";
       }
     }
 
@@ -559,11 +553,9 @@
                 <option value="sylvan">Sylvan</option>
                 <option value="undercommon">Undercommon</option>
                 <option value="void speech">Void Speech</option>
-                <option value="telepathy">Telepathy</option>
                 <option value="other">Other</option>
               </select><br>
               <input class="text-box-long" type="text" placeholder="Other" id="othlang">
-              <p id="telep">Telepathy range: <input class="num-box" type="number" min="0" placeholder="0"><br></p>
               <input class="button" type="button" onclick="alert('Speaks')" value="Speaks">
               <input class="button" type="button" onclick="alert('Understands')" value="Understands">
             </td>
@@ -572,11 +564,12 @@
           <div class="spacer"></div>
         <table>
           <tr>
-            <td>Darkvision: <input class="num-box" type="number" min="0" placeholder="0"></td>
-            <td>Blindsight: <input class="num-box" type="number" min="0" placeholder="0" id="bsight" onchange="blindBeyond()"><br>
+            <td>Darkvision: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+            <td>Blindsight: <input class="num-box" type="number" min="0" placeholder="0" id="bsight" onchange="blindBeyond()"> ft.<br>
               <p id="blnds"><label for="blbeyond">Blind beyond?</label> <input type="checkbox" id="blbeyond" name="blbeyond" value="blindsight"></p></td>
-            <td>Tremorsense: <input class="num-box" type="number" min="0" placeholder="0"></td>
-            <td>Truesight: <input class="num-box" type="number" min="0" placeholder="0"></td>
+            <td>Tremorsense: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+            <td>Truesight: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+            <td>Telepathy: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
           </tr>
         </table>
           <div class="spacer"></div>
