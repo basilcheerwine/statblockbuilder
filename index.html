@@ -48,11 +48,21 @@
       color:darkred;
     }
 
+    #statblock h1 {
+      text-align:left;
+      font-size:24px;
+    }
+
     h2 {
       font-family:'Scaly Sans Caps';
       font-size:24px;
       text-align:center;
       color:darkred;
+    }
+
+    #statblock h2 {
+      text-align:left;
+      font-size:18px;
     }
 
     label {
@@ -133,6 +143,9 @@
 
     .button {
       padding:4px;
+      margin-right:5px;
+      margin-top:3px;
+      margin-bottom:3px;
       font-family:'Scaly Sans';
       font-size:16px;
       background:#954531;
@@ -226,8 +239,8 @@
 
     function customHP() {
       var checkBox = document.getElementById("customhp");
-      var tohide = document.getElementById("tohide");
-      var toshow = document.getElementById("toshow");
+      var tohide = document.getElementById("hdhide");
+      var toshow = document.getElementById("hdshow");
       if (checkBox.checked == true){
         tohide.style.display = "none";
         toshow.style.display = "inline";
@@ -559,11 +572,11 @@
         <div class="spacer"></div>
         <div style="text-align:center"><textarea name="description">Description goes here.</textarea>
           <div class="spacer"></div>
-          <input class="button" type="button" onclick="alert('Add Ability')" value="Add Ability">&nbsp;
-          <input class="button" type="button" onclick="alert('Add Action')" value="Add Action">&nbsp;
-          <input class="button" type="button" onclick="alert('Add Bonus Action')" value="Add Bonus Action">&nbsp;
-          <input class="button" type="button" onclick="alert('Add Reaction')" value="Add Reaction">&nbsp;
-          <input class="button" type="button" id="legbtn" onclick="alert('Add Legendary Action')" value="Add Legendary Action">&nbsp;
+          <input class="button" type="button" onclick="alert('Add Ability')" value="Add Ability">
+          <input class="button" type="button" onclick="alert('Add Action')" value="Add Action">
+          <input class="button" type="button" onclick="alert('Add Bonus Action')" value="Add Bonus Action">
+          <input class="button" type="button" onclick="alert('Add Reaction')" value="Add Reaction">
+          <input class="button" type="button" id="legbtn" onclick="alert('Add Legendary Action')" value="Add Legendary Action">
           <input class="button" type="button" id="lairbtn" onclick="alert('Add Lair Action')" value="Add Lair Action"><br>
           <select name="preset-ability" id="preset-ability">
             <option value="Select Preset">Select Preset</option>"
