@@ -89,6 +89,7 @@
       font-family:'Scaly Sans';
       font-size:16px;
       padding:3px;
+      margin-bottom:3px;
     }
 
     option {
@@ -241,7 +242,7 @@
       display:inline;
     }
 
-    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp, #othlang, #telepathyrange {
+    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp, #othlang, #telep {
       display:none;
     }
 
@@ -561,7 +562,7 @@
                 <option value="telepathy">Telepathy</option>
                 <option value="other">Other</option>
               </select><br>
-              <input class="text-box-short" type="text" placeholder="Other" id="othlang">
+              <input class="text-box-long" type="text" placeholder="Other" id="othlang">
               <p id="telep">Telepathy range: <input class="num-box" id="telepathyrange" type="number" min="0" placeholder="0"></p>
               <input class="button" type="button" onclick="alert('Speaks')" value="Speaks">
               <input class="button" type="button" onclick="alert('Understands')" value="Understands">
