@@ -271,7 +271,8 @@
     }
 
     function blindBeyond() {
-      var bsrange = document.getElementById("bsight").value;
+      var bsrange = document.getElementById("bsight");
+      document.getElementById("bsight").defaultValue = bsrange;
       var bbyond = document.getElementById("blbeyond");
       if (bsrange > 0){
         bbyond.style.display = "inline";
