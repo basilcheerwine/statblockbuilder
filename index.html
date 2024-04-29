@@ -217,6 +217,20 @@
 
   <script>
 
+    function showElement(cb,itemhide,itemshow) {
+      var checkBox = document.getElementById(cb);
+      var tohide = document.getElementById(itemhide);
+      var toshow = document.getElementById(itemshow);
+
+      // If the checkbox is checked, hide and show the relevant items
+      if (checkBox.checked == true){
+        tohide.style.display = "none";
+        toshow.style.display = "inline";
+      } else {
+        tohide.style.display = "inline";
+        toshow.style.display = "none";
+      }
+    }
 
   </script>
     
@@ -321,8 +335,8 @@
                 </select><br>
                 <input class="button" type="button" onclick="alert('Proficient')" value="Proficient">
               </td>
-              <td>Hit Dice: <input class="num-box" type="text" value="2"><br>
-                <label for="customhp">Use custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp"></td>
+              <td>Hit Dice: <input class="num-box" type="text" value="2" id="hpdefault"><input class="text-box-short" type="text" placeholder="Enter custom HP" id="hpnew"><br>
+                <label for="customhp">Use custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp" style="display:hidden" onclick="showElement(customhp,hpdefault,hpnew)"></td>
               <td><label for="mon-armor">Armor:</label> <select name="mon-armor" id="mon-armor">
                   <option value="blank"></option>
                   <option value="type1">Padded Armor</option>
