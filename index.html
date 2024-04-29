@@ -241,7 +241,7 @@
       display:inline;
     }
 
-    #hdshow, #lairbtn, #legbtn, #blnds {
+    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr {
       display:none;
     }
 
@@ -289,6 +289,16 @@
         bbyond.style.display = "inline";
       } else {
         bbyond.style.display = "none";
+      }
+    }
+
+    function naturalArmor() {
+      var rmrtype = document.getElementById("mon-armor").value;
+      var natbon = document.getElementById("natrmr");
+      if (rmrtype == "type14"){
+        natbon.style.display = "inline";
+      } else {
+        natbon.style.display = "none";
       }
     }
 
@@ -416,7 +426,7 @@
                   <option value="other">Other</option>"
                 </select><br>
                 <label for="shield">Shield?</label> <input type="checkbox" id="shield" name="shield" value="shield"></td>
-              <td>Natural Armor Bonus: <input class="num-box" type="number" min="0" value="2"><br>
+              <td><p id="natrmr">Natural Armor Bonus: <input class="num-box" type="number" min="0" placeholder="2"></p><br>
                 AC and Armor Description:<br>
                 <input class="text-box-long" type="text" placeholder="10 (description)"></td>
             </tr>
