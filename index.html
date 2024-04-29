@@ -242,7 +242,7 @@
       display:inline;
     }
 
-    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp, #othlang {
+    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp, #othlang, #hoverbox {
       display:none;
     }
 
@@ -330,6 +330,16 @@
         otherlan.style.display = "inline";
       } else {
         otherlan.style.display = "none";
+      }
+    }
+
+    function flyHover() {
+      var flspd = document.getElementById("flybox").value;
+      var hvr = document.getElementById("hoverbox");
+      if (flspd > 0){
+        hvr.style.display = "inline";
+      } else {
+        hvr.style.display = "none";
       }
     }
 
@@ -576,8 +586,8 @@
         <table>
           <tr>
             <td>Speed: <input class="num-box" type="number" min="0" value="30"></td>
-            <td>Fly: <input class="num-box" type="number" min="0" placeholder="0"><br>
-              <label for="fly">Hover?</label> <input type="checkbox" id="fly" name="fly" value="hover"></td>
+            <td>Fly: <input class="num-box" type="number" min="0" placeholder="0" id="flybox"><br>
+              <p id="hoverbox"><label for="fly">Hover?</label> <input type="checkbox" id="fly" name="fly" value="hover"></p></td>
             <td>Swim: <input class="num-box" type="number" min="0" placeholder="0"></td>
             <td>Burrow: <input class="num-box" type="number" min="0" placeholder="0"></td>
             <td>Climb: <input class="num-box" type="number" min="0" placeholder="0"></td>
