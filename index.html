@@ -169,6 +169,26 @@
       line-height:150%;
     }
 
+    #abilities {
+      position:relative;
+      width:100%;
+      max-width:1000px;
+      padding:10px;
+      margin:auto;
+      font-size:11px;
+      font-family:'Scaly Sans';
+      line-height:150%;
+    }
+
+    #text-editor {
+      position:relative;
+      width:75%;
+      min-height:150px;
+      resize:vertical;
+      margin:auto;
+      border:1px solid darkred;
+    }
+
   </style>
 
   <script>
@@ -460,7 +480,14 @@
           <p>Proficiency bonus: ##</p>
         </div>
         <div class="spacer"></div>
-      </div>        
+      </div> 
+      <div id="abilities">
+        <div class="spacer"></div>
+        <input class="text-box-long" type="text" placeholder="Ability Name"><br>
+        <div class="spacer"></div>
+        <input id="text-editor" type="text" placeholder="Type description here.">
+        </div>
+      </div>
       </div>
     </main>
   </body>
