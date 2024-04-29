@@ -225,12 +225,10 @@
 
   <script>
 
-    function showElement() {
+    function customHP() {
       var checkBox = document.getElementById("customhp");
       var tohide = document.getElementById("tohide");
       var toshow = document.getElementById("toshow");
-
-      // If the checkbox is checked, hide and show the relevant items
       if (checkBox.checked == true){
         tohide.style.display = "none";
         toshow.style.display = "inline";
@@ -239,6 +237,27 @@
         toshow.style.display = "none";
       }
     }
+
+    function legendaryBtn() {
+      var checkBox = document.getElementById("legendary");
+      var toshow = document.getElementById("legbtn");
+      if (checkBox.checked == true){
+        toshow.style.display = "inline";
+      } else {
+        toshow.style.display = "none";
+      }
+    }
+
+    function lairBtn() {
+      var checkBox = document.getElementById("lair");
+      var toshow = document.getElementById("lairbtn");
+      if (checkBox.checked == true){
+        toshow.style.display = "inline";
+      } else {
+        toshow.style.display = "none";
+      }
+    }
+
 
   </script>
     
@@ -343,8 +362,8 @@
                 </select><br>
                 <input class="button" type="button" onclick="alert('Proficient')" value="Proficient">
               </td>
-              <td>Hit Dice: <input class="num-box" type="text" value="2" id="tohide"><input class="text-box-short" type="text" placeholder="Enter custom HP" id="toshow"><br>
-                <label for="customhp">Use custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp" style="display:hidden" onclick="showElement(customhp)"></td>
+              <td>Hit Dice: <input class="num-box" type="text" value="2" id="tohide"><input class="text-box-long" type="text" placeholder="Enter custom HP" id="toshow"><br>
+                <label for="customhp">Use custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp" style="display:hidden" onclick="customHP()"></td>
               <td><label for="mon-armor">Armor:</label> <select name="mon-armor" id="mon-armor">
                   <option value="blank"></option>
                   <option value="type1">Padded Armor</option>
@@ -529,8 +548,8 @@
             <option value="30">30</option>
           </select>
           <p style="font-family:'Bookinsanity';font-size:16px;">Proficiency bonus: ##</p>
-          <label for="legendary">Legendary?</label> <input type="checkbox" id="legendary" name="legendary" value="legendary"></td>&nbsp;&nbsp;&nbsp;
-          <label for="lair">Lair Actions?</label> <input type="checkbox" id="lair" name="lair" value="lair"></td>
+          <label for="legendary">Legendary?</label> <input type="checkbox" id="legendary" name="legendary" value="legendary" onclick="legendaryBtn()"></td>&nbsp;&nbsp;&nbsp;
+          <label for="lair">Lair Actions?</label> <input type="checkbox" id="lair" name="lair" value="lair" onclick="lairBtn()"></td>
           <div class="spacer"></div>
         </div>
       </div> 
@@ -545,8 +564,8 @@
           <input class="button" type="button" onclick="alert('Add Action')" value="Add Action">&nbsp;
           <input class="button" type="button" onclick="alert('Add Bonus Action')" value="Add Bonus Action">&nbsp;
           <input class="button" type="button" onclick="alert('Add Reaction')" value="Add Reaction">&nbsp;
-          <input class="button" type="button" onclick="alert('Add Legendary Action')" value="Add Legendary Action">&nbsp;
-          <input class="button" type="button" onclick="alert('Add Lair Action')" value="Add Lair Action"><br>
+          <input class="button" type="button" id="legbtn" onclick="alert('Add Legendary Action')" value="Add Legendary Action">&nbsp;
+          <input class="button" type="button" id="lairbtn" onclick="alert('Add Lair Action')" value="Add Lair Action"><br>
           <select name="preset-ability" id="preset-ability">
             <option value="Select Preset">Select Preset</option>"
             <option value="Preset 1">Preset 1</option>
