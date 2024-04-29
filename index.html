@@ -114,13 +114,14 @@
     }
 
     .text-box-tall {
-      width:500px;
-      height:250px;
+      min-width:500px;
+      min-height:250px;
       margin:auto;
-      resize:vertical;
+      resize:both;
       font-size:11px;
       text-align:left;
-      display:block;
+      vertical-align:top;
+      display:inline;
       border:1px solid darkred;
     }
 
@@ -208,21 +209,21 @@
       <div id="container">
         <h1 style="text-align:center;margin-top:20px;">Stat Block Builder</h1>
         <div id="intro">
-        <label for="presets" style="text-align:center">Select a preset: </label>&nbsp;
-          <select name="presets" id="presets" style="margin:auto">
+        <div style="text-align:center"><label for="presets">Select a preset: </label>&nbsp;
+          <select name="presets" id="presets">
             <option value="default">Default</option>
             <option value="ghost">Ghost</option>
             <option value="skeleton">Skeleton</option>
             <option value="vampire">Vampire</option>
-          </select>
-        </div>
+          </select></div>
         <h2>Stat Block:</h2>
+        </div>
         <div id="statblock">
           <h1>Monster Name</h1>
           <p>Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth.</p>
         </div>
-        <h2>Stats:</h2>
-          <div id="stats">
+        <div id="stats">
+          <h2>Stats:</h2>
           <table>
             <tr>
               <td>Monster Name:<br>
@@ -489,8 +490,8 @@
         </div>
         <div class="spacer"></div>
       </div> 
-      <h2>Abilities:</h2>
-        <div id="abilities">
+      <div id="abilities">
+        <h2>Abilities:</h2>
         <div class="spacer"></div>
         <input class="text-box-long" type="text" placeholder="Ability Name" style="margin:auto"><br>
         <div class="spacer"></div>
