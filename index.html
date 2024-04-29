@@ -237,11 +237,11 @@
       height:10px;
     }
 
-    #hdhide {
+    #hdhide, #tagtp {
       display:inline;
     }
 
-    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm {
+    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtype {
       display:none;
     }
 
@@ -308,6 +308,20 @@
       }
     }
 
+    function tagOrType() {
+      var montype = document.getElementById("mon-type").value;
+      var tag = document.getElementById("tptg");
+      var othtype = document.getElementById("othtp")
+      if (montype == "other"){
+        tag.style.display = "none";
+        othtype.style.display = "inline";
+      }
+      else {
+        tag.style.display = "none";
+        othtype.style.display = "none";
+      }
+    }
+
   </script>
     
   </head>
@@ -347,7 +361,7 @@
                   <option value="gargantuan">Gargantuan</option>
                 </select></td>
               <td><label for="mon-type">Type:</label><br>
-                <select name="mon-type" id="mon-type">
+                <select name="mon-type" id="mon-type" onchange="tagOrType()">
                   <option value="blank"></option>
                   <option value="aberration">Aberration</option>
                   <option value="beast">Beast</option>
@@ -365,10 +379,12 @@
                   <option value="undead">Undead</option>
                   <option value="other">Other</option>
                 </select></td>
-                <td>Tag:<br>
-                <input class="text-box-short" type="text" placeholder="tag"></td>
+                <td><p id="tptg">Tag:<br>
+                <input class="text-box-long" type="text" placeholder="tag"></p>
+                <p id="othtp">Type:<br>
+                <input class="text-box-long" type="text" placeholder="type"></p></td>
               <td>Alignment:<br>
-                <input class="text-box-short" type="text" value="unaligned"></td>
+                <input class="text-box-long" type="text" placeholder="unaligned"></td>
               </tr>
           </table>
           <div class="spacer"></div>
@@ -437,8 +453,7 @@
                 <input class="text-box-long" type="text" placeholder="10 (description)"></p></td>
             </tr>
         </table>
-          <div class="spacer"></div>
-        
+          <div class="spacer"></div>        
         <table>
           <tr>
             <td><label for="damages">Damage Types:</label><br>
