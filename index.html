@@ -89,6 +89,20 @@
       font-size:11px;
     }
 
+    textarea {
+      width:75%;
+      max-width:800px;
+      min-height:250px;
+      margin:auto;
+      resize:vertical;
+      font-size:11px;
+      text-align:left;
+      vertical-align:top;
+      display:inline;
+      border:1px solid darkred;
+    }
+
+
     .num-box {
       width:30px;
       height:auto;
@@ -111,19 +125,6 @@
       font-size:11px;
       text-align:left;
       display:inline;
-    }
-
-    .text-box-tall {
-      width:75%;
-      max-width:800px;
-      min-height:250px;
-      margin:auto;
-      resize:vertical;
-      font-size:11px;
-      text-align:left;
-      vertical-align:top;
-      display:inline;
-      border:1px solid darkred;
     }
 
     .button {
@@ -493,9 +494,9 @@
       </div> 
       <div id="abilities">
         <h2>Abilities:</h2>
-        <div style="margin:auto"><input class="text-box-long" type="text" placeholder="Ability Name"></div>
+        <div style="text-align:center"><input class="text-box-long" type="text" placeholder="Ability Name"></div>
         <div class="spacer"></div>
-        <textarea class="text-box-tall" name="description">Description goes here.</textarea>
+        <textarea name="description">Description goes here.</textarea>
         </div>
       </div>
       </div>
