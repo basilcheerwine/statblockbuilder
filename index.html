@@ -122,7 +122,7 @@
     }
 
     .text-box-short {
-      width:100px;
+      width:80px;
       height:auto;
       font-size:12px;
       text-align:left;
@@ -132,7 +132,7 @@
 
     .button {
       padding:2px;
-      font-family:'Bookinsanity';
+      font-family:'Scaly Sans';
       font-size:12px;
     }
 
@@ -238,7 +238,7 @@
           <table>
             <tr>
               <td>Monster Name:<br>
-                <input class="text-box-long" type="text" placeholder="Default Monster Name"></td>
+                <input class="text-box-long" type="text" value="Default Monster Name"></td>
               <td><label for="mon-size">Size:</label><br>
                 <select name="mon-size" id="mon-size">
                   <option value="blank"></option>
@@ -271,7 +271,7 @@
                 <td>Tag:<br>
                 <input class="text-box-short" type="text" placeholder="tag"></td>
               <td>Alignment:<br>
-                <input class="text-box-short" type="text" placeholder="alignment"></td>
+                <input class="text-box-short" type="text" value="unaligned"></td>
               </tr>
           </table>
           <div class="spacer"></div>
@@ -285,12 +285,12 @@
               <td>Charisma</td>
             </tr>
             <tr>
-              <td><input class="num-box" type="text" placeholder="10"></td>
-              <td><input class="num-box" type="text" placeholder="10"></td>
-              <td><input class="num-box" type="text" placeholder="10"></td>
-              <td><input class="num-box" type="text" placeholder="10"></td>
-              <td><input class="num-box" type="text" placeholder="10"></td>
-              <td><input class="num-box" type="text" placeholder="10"></td>
+              <td><input class="num-box" type="text" value="10"></td>
+              <td><input class="num-box" type="text" value="10"></td>
+              <td><input class="num-box" type="text" value="10"></td>
+              <td><input class="num-box" type="text" value="10"></td>
+              <td><input class="num-box" type="text" value="10"></td>
+              <td><input class="num-box" type="text" value="10"></td>
             </tr>
             <tr>
               <td>Mod</td>
@@ -314,7 +314,7 @@
                 </select><br>
                 <input class="button" type="button" onclick="alert('Proficient')" value="Proficient">
               </td>
-              <td>Hit Dice: <input class="num-box" type="text" placeholder="2"><br>
+              <td>Hit Dice: <input class="num-box" type="text" value="2"><br>
                 <label for="customhp">Custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp"></td>
               <td><label for="mon-armor">Armor:</label> <select name="mon-armor" id="mon-armor">
                   <option value="blank"></option>
@@ -334,8 +334,8 @@
                   <option value="type14">Natural Armor</option>
                 </select><br>
                 <label for="shield">Shield?</label> <input type="checkbox" id="shield" name="shield" value="shield"></td>
-              <td>Other AC bonus: <input class="num-box" type="text" placeholder="0"><br>
-                <label for="magearmor">Mage Armor?</label> <input type="checkbox" id="magearmor" name="magearmor" value="magearmor"></td>
+              <td>Other AC bonus: <input class="num-box" type="text" value="0"><br>
+                <input class="text-box-short" type="text" placeholder="armor tag"></td>
             </tr>
         </table>
           <div class="spacer"></div>
@@ -434,29 +434,29 @@
               <input class="button" type="button" onclick="alert('Speaks')" value="Speaks">
               <input class="button" type="button" onclick="alert('Understands')" value="Understands"><br>
               <input class="text-box-short" type="text" placeholder="Other"><br>
-              Telepathy range: <input class="num-box" type="text" placeholder="0">
+              Telepathy range: <input class="num-box" type="text" value="0">
             </td>
           </tr>
         </table>
           <div class="spacer"></div>
         <table>
           <tr>
-            <td>Darkvision: <input class="num-box" type="text" placeholder="0"></td>
-            <td>Blindsight: <input class="num-box" type="text" placeholder="0"><br>
+            <td>Darkvision: <input class="num-box" type="text" value="0"></td>
+            <td>Blindsight: <input class="num-box" type="text" value="0"><br>
               <label for="bs">Blind beyond?</label> <input type="checkbox" id="bs" name="bs" value="blindsight"></td>
-            <td>Tremorsense: <input class="num-box" type="text" placeholder="0"></td>
-            <td>Truesight: <input class="num-box" type="text" placeholder="0"></td>
+            <td>Tremorsense: <input class="num-box" type="text" value="0"></td>
+            <td>Truesight: <input class="num-box" type="text" value="0"></td>
           </tr>
         </table>
           <div class="spacer"></div>
         <table>
           <tr>
-            <td>Speed: <input class="num-box" type="text" placeholder="30"></td>
-            <td>Fly: <input class="num-box" type="text" placeholder="0"><br>
+            <td>Speed: <input class="num-box" type="text" value="30"></td>
+            <td>Fly: <input class="num-box" type="text" value="0"><br>
               <label for="fly">Hover?</label> <input type="checkbox" id="fly" name="fly" value="hover"></td>
-            <td>Swim: <input class="num-box" type="text" placeholder="0"></td>
-            <td>Burrow: <input class="num-box" type="text" placeholder="0"></td>
-            <td>Climb: <input class="num-box" type="text" placeholder="0"></td>
+            <td>Swim: <input class="num-box" type="text" value="0"></td>
+            <td>Burrow: <input class="num-box" type="text" value="0"></td>
+            <td>Climb: <input class="num-box" type="text" value="0"></td>
           </tr>
         </table>
         <div class="spacer"></div>
@@ -505,7 +505,7 @@
       </div> 
       <div id="abilities">
         <h2>Abilities:</h2>
-        <div style="text-align:center;font-size:15px;"><input class="text-box-long" type="text" placeholder="Ability Name"></div>
+        <div style="text-align:center;font-size:15px;"><input class="text-box-long" type="text" value="Ability Name"></div>
         <div class="spacer"></div>
         <div style="text-align:center"><textarea name="description">Description goes here.</textarea>
           <div class="spacer"></div>
