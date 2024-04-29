@@ -43,14 +43,15 @@
     
     h1 {
       font-family:'Mr Eaves Small Caps';
-      font-size:20px;
+      font-size:30px;
+      text-align:center;
       color:darkred;
     }
 
     h2 {
       font-family:'Scaly Sans Caps';
-      font-size:15px;
-      text-align:left;
+      font-size:24px;
+      text-align:center;
       color:darkred;
     }
 
@@ -135,6 +136,8 @@
       padding:2px;
       font-family:'Scaly Sans';
       font-size:12px;
+      background:#954531;
+      color:#ffffff;
     }
 
     .end-spacer {
@@ -220,19 +223,20 @@
   <body>
     <main>
       <div id="container">
-        <h1 style="text-align:center;margin-top:40px;">Stat Block Builder</h1>
+        <h1 style="margin-top:40px;">Stat Block Builder</h1>
         <div id="intro">
-        <div style="text-align:center"><label for="presets">Select a preset: </label>&nbsp;
+        <div style="text-align:center"><label for="presets">Load an existing monster: </label>&nbsp;
           <select name="presets" id="presets">
             <option value="default">Default</option>
             <option value="ghost">Ghost</option>
             <option value="skeleton">Skeleton</option>
             <option value="vampire">Vampire</option>
-          </select></div>
+          </select>&nbsp;&nbsp;&nbsp;
+          <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset"></div>
         <h2>Stat Block:</h2>
         </div>
         <div id="statblock">
-          <h1>Monster Name</h1>
+          <h1>Name</h1>
           <p>Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth.</p>
         </div>
         <div id="stats">
@@ -317,7 +321,7 @@
                 <input class="button" type="button" onclick="alert('Proficient')" value="Proficient">
               </td>
               <td>Hit Dice: <input class="num-box" type="text" value="2"><br>
-                <label for="customhp">Custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp"></td>
+                <label for="customhp">Use custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp"></td>
               <td><label for="mon-armor">Armor:</label> <select name="mon-armor" id="mon-armor">
                   <option value="blank"></option>
                   <option value="type1">Padded Armor</option>
@@ -334,10 +338,12 @@
                   <option value="type12">Splint Armor</option>
                   <option value="type13">Plate Mail</option>
                   <option value="type14">Natural Armor</option>
+                  <option value="other">Other</option>"
                 </select><br>
                 <label for="shield">Shield?</label> <input type="checkbox" id="shield" name="shield" value="shield"></td>
-              <td>Other AC bonus: <input class="num-box" type="text" value="0"><br>
-                <input class="text-box-short" type="text" placeholder="armor tag"></td>
+              <td>Natural Armor Bonus: <input class="num-box" type="text" value="2"><br>
+                AC and Armor Description:<br>
+                <input class="text-box-long" type="text" placeholder="10 (description)"></td>
             </tr>
         </table>
           <div class="spacer"></div>
@@ -507,13 +513,7 @@
       </div> 
       <div id="abilities">
         <h2>Abilities:</h2>
-        <div style="text-align:center; font-size:15px;"><input class="text-box-long" type="text" value="Ability Name">&nbsp;&nbsp;&nbsp;
-          <select name="preset-ability" id="preset-ability">
-            <option value="Preset 1">Preset 1</option>
-            <option value="Preset 2">Preset 2</option>
-            <option value="Preset 3">Preset 3</option>
-            </select>&nbsp;&nbsp;&nbsp;
-            <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
+        <div style="text-align:center; font-size:15px;"><input class="text-box-long" type="text" value="Ability Name">
           </div>
         <div class="spacer"></div>
         <div style="text-align:center"><textarea name="description">Description goes here.</textarea>
@@ -523,7 +523,14 @@
           <input class="button" type="button" onclick="alert('Add Bonus Action')" value="Add Bonus Action">&nbsp;
           <input class="button" type="button" onclick="alert('Add Reaction')" value="Add Reaction">&nbsp;
           <input class="button" type="button" onclick="alert('Add Legendary Action')" value="Add Legendary Action">&nbsp;
-          <input class="button" type="button" onclick="alert('Add Lair Action')" value="Add Lair Action">
+          <input class="button" type="button" onclick="alert('Add Lair Action')" value="Add Lair Action"><br>
+          <select name="preset-ability" id="preset-ability">
+            <option value="Select Preset">Select Preset</option>"
+            <option value="Preset 1">Preset 1</option>
+            <option value="Preset 2">Preset 2</option>
+            <option value="Preset 3">Preset 3</option>
+            </select>&nbsp;&nbsp;&nbsp;
+            <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
         </div>
         </div>
       <div class="end-spacer"></div>
