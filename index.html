@@ -104,7 +104,6 @@
       border:1px solid darkred;
     }
 
-
     .num-box {
       width:25px;
       height:auto;
@@ -145,11 +144,11 @@
       height:100px;
     }
 
-    #tohide {
+    #hdhide {
       display:inline;
     }
 
-    #toshow {
+    #hdshow, #lairbtn, #legbtn {
       display:none;
     }
 
@@ -362,8 +361,8 @@
                 </select><br>
                 <input class="button" type="button" onclick="alert('Proficient')" value="Proficient">
               </td>
-              <td>Hit Dice: <input class="num-box" type="text" value="2" id="tohide"><input class="text-box-long" type="text" placeholder="Enter custom HP" id="toshow"><br>
-                <label for="customhp">Use custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp" style="display:hidden" onclick="customHP()"></td>
+              <td>Hit Dice: <input class="num-box" type="text" value="2" id="hdhide"><input class="text-box-long" type="text" placeholder="Enter custom HP" id="hdshow"><br>
+                <label for="customhp">Use custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp" onclick="customHP()"></td>
               <td><label for="mon-armor">Armor:</label> <select name="mon-armor" id="mon-armor">
                   <option value="blank"></option>
                   <option value="type1">Padded Armor</option>
