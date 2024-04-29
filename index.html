@@ -303,7 +303,7 @@
                   <option value="wisdom">Wisdom</option>
                   <option value="charisma">Charisma</option>
                 </select><br>
-                <input class="button" class="button" type="button" onclick="alert('Proficient')" value="Proficient">
+                <input class="button" type="button" onclick="alert('Proficient')" value="Proficient">
               </td>
               <td>Hit Dice: <input class="num-box" type="text" placeholder="2"><br>
                 <label for="customhp">Custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp"></td>
@@ -496,7 +496,13 @@
         <h2>Abilities:</h2>
         <div style="text-align:center"><input class="text-box-long" type="text" placeholder="Ability Name"></div>
         <div class="spacer"></div>
-        <textarea name="description">Description goes here.</textarea>
+        <div style="text-align:center"><textarea name="description">Description goes here.</textarea><br>
+        <input class="button" type="button" onclick="alert('Add Ability')" value="Add Ability">&nbsp;
+        <input class="button" type="button" onclick="alert('Add Action')" value="Add Action">&nbsp;
+        <input class="button" type="button" onclick="alert('Add Bonus Action')" value="Add Bonus Action">&nbsp;
+        <input class="button" type="button" onclick="alert('Add Reaction')" value="Add Reaction">&nbsp;
+        <input class="button" type="button" onclick="alert('Add Legendary Action')" value="Add Legendary Action">&nbsp;
+        <input class="button" type="button" onclick="alert('Add Lair Action')" value="Add Lair Action"></div>
         </div>
       </div>
       </div>
