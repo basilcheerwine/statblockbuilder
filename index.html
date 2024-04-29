@@ -241,7 +241,7 @@
       display:inline;
     }
 
-    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp {
+    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp, #othlang, #telepathyrange {
       display:none;
     }
 
@@ -319,6 +319,22 @@
       else {
         tag.style.display = "inline";
         othtype.style.display = "none";
+      }
+    }
+
+    function langOptions() {
+      var langch = document.getElementById("languages").value;
+      var otherlan = document.getElementById("othlang");
+      var telrange = document.getElementById("telepathyrange")
+      if (langch == "other"){
+        otherlan.style.display = "inline";
+        telrange.style.display = "none";
+      } else if (langch == "telepathy"){
+        otherlan.style.display = "none";
+        telrange.style.display = "inline";
+      } else {
+        otherlan.style.display = "none";
+        telrange.style.display = "none";
       }
     }
 
@@ -524,7 +540,7 @@
               <input class="button" type="button" onclick="alert('Expertise')" value="Expertise">
             </td>
             <td><label for="languages">Languages:</label><br>
-              <select name="languages" id="languages">
+              <select name="languages" id="languages" onchange="langOptions()">
                 <option value="common">Common</option>
                 <option value="abyssal">Abyssal</option>
                 <option value="celestial">Celestial</option>
@@ -545,10 +561,10 @@
                 <option value="telepathy">Telepathy</option>
                 <option value="other">Other</option>
               </select><br>
+              <input class="text-box-short" type="text" placeholder="Other" id="othlang">
+              <p id="telep">Telepathy range: <input class="num-box" id="telepathyrange" type="number" min="0" placeholder="0"></p>
               <input class="button" type="button" onclick="alert('Speaks')" value="Speaks">
-              <input class="button" type="button" onclick="alert('Understands')" value="Understands"><br>
-              <input class="text-box-short" type="text" placeholder="Other"><br>
-              Telepathy range: <input class="num-box" type="number" min="0" placeholder="0">
+              <input class="button" type="button" onclick="alert('Understands')" value="Understands">
             </td>
           </tr>
         </table>
