@@ -434,7 +434,7 @@
     function menus() {
       var x = document.getElementById("menus")
       var menuarea = document.getElementById("presetfilters")
-      if (x == TRUE){
+      if (x == "Hide"){
         menuarea.style.display = "none"
       } else {
         menuarea.style.display = "block"
@@ -752,11 +752,11 @@
           <input class="button" type="button" id="lairbtn" onclick="alert('Add Lair Action')" value="Add Lair Action">
             <div class="spacer"></div>
             <div class="switch-button" style="text-align:center; margin:auto; font-family:'Scaly Sans'">
-              <input class="switch-button-checkbox" type="checkbox" id="menus" onchange="menus()"></input>
+              <input class="switch-button-checkbox" type="checkbox" id="menus" value="Hide" onchange="menus()"></input>
               <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
             </div>          
         </div>
-        <div id="presets">
+        <div id="presetfilters">
           <div style="margin:auto">
             <select name="preset-ability" id="preset-ability">
               <option value="Select Preset">Select Preset</option>"
