@@ -221,6 +221,10 @@
       transition: transform 300ms linear;
     }
 
+    .switch-button-checkbox:checked + .switch-button:before {
+      color:#954531;
+    }
+
     .switch-button-checkbox + .switch-button-label {
       position: relative;
       padding: 8px 0;
@@ -235,10 +239,6 @@
 
     .switch-button-checkbox + .switch-button-label:before {
       content: "";
-      background: #954531;
-      color:white;
-      font-family:'Scaly Sans';
-      font-size:12px;
       position: absolute;
       height: 100%;
       box-sizing: border-box;
@@ -258,6 +258,10 @@
       margin: auto;
       font-size:12px;
       line-height:100%;
+    }
+
+    .switch-button-checkbox:checked + .switch-button-label-span {
+      color:white;
     }
 
     #container {
