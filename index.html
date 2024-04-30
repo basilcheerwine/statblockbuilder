@@ -257,6 +257,10 @@
     .switch-button-label-span {
       position: relative;
       box-sizing: border-box;
+      font-family:'Scaly Sans';
+      margin-top:auto;
+      margin-bottom:auto;
+      font-size:12px;
       height:25px;
     }
 
@@ -330,7 +334,9 @@
 
     #presetfilters {
       width: 100%;
-      display: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
     }
 
     #hdhide, #tptg {
@@ -442,9 +448,9 @@
       var checkBox = document.getElementById("menus")
       var menuarea = document.getElementById("presetfilters")
       if (checkBox.checked == true){
-        menuarea.style.display = "none"
+        menuarea.style.maxHeight = menuarea.scrollHeight + "px"
       } else {
-        menuarea.style.display = "block"
+        menuarea.style.maxHeight = "none"
       }
     }
 
