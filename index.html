@@ -213,7 +213,7 @@
       left: 0;
       bottom: 0;
       width: 100%;
-      height: 100%;
+      height: 25px;
       opacity: 0;
       z-index: 2;
     }
@@ -339,7 +339,6 @@
       overflow: hidden;
       transition: max-height 300ms ease-out;
       background:#ffffff8f;
-      border: 1px solid darkred;
     }
 
     #hdhide, #tptg {
@@ -451,9 +450,11 @@
       var checkBox = document.getElementById("menus")
       var menuarea = document.getElementById("presetfilters")
       if (checkBox.checked == true){
-        menuarea.style.maxHeight = menuarea.scrollHeight + "px"
+        menuarea.style.maxHeight = menuarea.scrollHeight + "px";
+        menuarea.style.border = "1px solid darkred"
       } else {
         menuarea.style.maxHeight = 0;
+        menuarea.style.border = "0px";
       }
     }
 
@@ -772,9 +773,9 @@
               <input class="switch-button-checkbox" type="checkbox" id="menus" value="Hide" onclick="menus()"></input>
               <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
             </div>
+          <div class="spacer"></div>
         </div>
         <div id="presetfilters">
-          <div class="spacer"></div>
           <div style="margin:auto; text-align:center;">
             <select name="preset-ability" id="preset-ability">
               <option value="Select Preset">Select Preset</option>"
