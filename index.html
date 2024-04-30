@@ -205,6 +205,9 @@
 
     .switch-button-checkbox {
       cursor: pointer;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
       position: absolute;
       top: 0;
       left: 0;
@@ -227,6 +230,7 @@
       font-family:'Scaly Sans';
       height: 25px;
       font-size:12px;
+      box-sizing: border-box;
       display: block;
       user-select: none;
       pointer-events: none;
@@ -240,6 +244,7 @@
       font-size:12px;
       position: absolute;
       height: 100%;
+      box-sizing: border-box;
       width: 100%;
       position: absolute;
       left: 0;
@@ -251,6 +256,7 @@
 
     .switch-button-label-span {
       position: relative;
+      box-sizing: border-box;
       height:25px;
     }
 
@@ -433,9 +439,9 @@
     }
 
     function menus() {
-      var x = document.getElementById("menus").value
+      var checkBox = document.getElementById("menus")
       var menuarea = document.getElementById("presetfilters")
-      if (x == "Hide"){
+      if (checkBox.checked == true){
         menuarea.style.display = "none"
       } else {
         menuarea.style.display = "block"
@@ -753,7 +759,7 @@
           <input class="button" type="button" id="lairbtn" onclick="alert('Add Lair Action')" value="Add Lair Action">
             <div class="spacer"></div>
             <div class="switch-button" style="text-align:center; margin:auto; font-family:'Scaly Sans'">
-              <input class="switch-button-checkbox" type="checkbox" id="menus" value="Hide" onchange="menus()"></input>
+              <input class="switch-button-checkbox" type="checkbox" id="menus" value="Hide" onclick="menus()"></input>
               <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
             </div>          
         </div>
