@@ -213,11 +213,11 @@
     }
 
     .switch-button-checkbox:checked + .switch-button-label:before {
-        transform: translateX(170px);
-        transition: transform 300ms linear;
-      }
+      transform: translateX(170px);
+      transition: transform 300ms linear;
+    }
 
-    .switch-button-checkbox:checked + .switch-button-label {
+    .switch-button-checkbox + .switch-button-label {
       position: relative;
       padding: 10px 0;
       display: block;
@@ -225,7 +225,7 @@
       pointer-events: none;
     }
 
-    .switch-button-checkbox:before {
+    .switch-button-checkbox + .switch-button-label:before {
       content: "";
       background: #fff;
       height: 100%;
@@ -736,7 +736,7 @@
             <option value="Preset 3">Preset 3</option>
             </select>
             <div class="spacer"></div>
-            <div class="switch-button" style="text-align:center">
+            <div class="switch-button" style="text-align:center; margin:auto; font-family:'Scaly Sans'">
               <input class="switch-button-checkbox" type="checkbox"></input>
               <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
             </div>          
