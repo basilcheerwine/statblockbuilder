@@ -338,7 +338,7 @@
       margin:auto;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 300ms ease-out;
+      transition: max-height 300ms ease;
       background:#ffffff8f;
     }
 
@@ -346,9 +346,21 @@
       display:inline;
     }
 
+    /*
     #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp, #othlang, #hoverbox {
       display:none;
+    }*/
+
+    #hdshow, #lairbtn, #legbtn, #natrmr, #otharm, #othtp, #othlang {
+      display:none;
     }
+
+    #blnds, #hoverbox {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 300ms ease;
+    }
+
 
   </style>
 
@@ -387,13 +399,23 @@
       }
     }
 
-    function blindBeyond() {
+    /*function blindBeyond() {
       var bsrange = document.getElementById("bsight").value;
       var bbyond = document.getElementById("blnds");
       if (bsrange > 0){
         bbyond.style.display = "inline";
       } else {
         bbyond.style.display = "none";
+      }
+    }*/
+
+    function blindBeyond() {
+      var bsrange = document.getElementById("bsight").value;
+      var bbyond = document.getElementById("blnds");
+      if (bsrange > 0){
+        bbyond.style.maxHeight = bbyond.scrollHeight + "px";
+      } else {
+        bbyond.style.maxHeight = 0;
       }
     }
 
@@ -437,13 +459,23 @@
       }
     }
 
-    function flyHover() {
+    /*function flyHover() {
       var flspd = document.getElementById("flybox").value;
       var hvr = document.getElementById("hoverbox");
       if (flspd > 0){
         hvr.style.display = "inline";
       } else {
         hvr.style.display = "none";
+      }
+    }*/
+
+    function flyHover() {
+      var flspd = document.getElementById("flybox").value;
+      var hvr = document.getElementById("hoverbox");
+      if (flspd > 0){
+        hvr.style.maxHeight = hvr.scrollHeight + "px";
+      } else {
+        hvr.style.maxHeight = 0;
       }
     }
 
@@ -799,6 +831,7 @@
               <option value="Preset 3">Preset 3</option>
               </select>
             <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
+            <div style="height:200px">Additional content here for illustration purposes.</div>
           </div>
         </div>
         </div>
