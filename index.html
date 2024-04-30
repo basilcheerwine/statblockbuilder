@@ -250,6 +250,7 @@
 
     .switch-button-label-span {
       position: relative;
+      height:25px;
     }
 
     #container {
@@ -427,6 +428,16 @@
         hvr.style.display = "inline";
       } else {
         hvr.style.display = "none";
+      }
+    }
+
+    function menus() {
+      var x = document.getElementById("menus")
+      var menuarea = document.getElementById("presetfilters")
+      if (x == TRUE){
+        menuarea.style.display = "none"
+      } else {
+        menuarea.style.display = "block"
       }
     }
 
@@ -741,18 +752,20 @@
           <input class="button" type="button" id="lairbtn" onclick="alert('Add Lair Action')" value="Add Lair Action">
             <div class="spacer"></div>
             <div class="switch-button" style="text-align:center; margin:auto; font-family:'Scaly Sans'">
-              <input class="switch-button-checkbox" type="checkbox" onchange="alert('Show')"></input>
+              <input class="switch-button-checkbox" type="checkbox" id="menus" onchange="menus()"></input>
               <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
             </div>          
         </div>
         <div id="presets">
-          <select name="preset-ability" id="preset-ability">
-            <option value="Select Preset">Select Preset</option>"
-            <option value="Preset 1">Preset 1</option>
-            <option value="Preset 2">Preset 2</option>
-            <option value="Preset 3">Preset 3</option>
-            </select>
-          <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
+          <div style="margin:auto">
+            <select name="preset-ability" id="preset-ability">
+              <option value="Select Preset">Select Preset</option>"
+              <option value="Preset 1">Preset 1</option>
+              <option value="Preset 2">Preset 2</option>
+              <option value="Preset 3">Preset 3</option>
+              </select>
+            <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
+          </div>
         </div>
         </div>
       <div class="end-spacer"></div>
