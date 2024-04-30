@@ -176,8 +176,7 @@
       margin: 0;
     }
 
-    /*
-    body {
+    #menutoggle {
       background-color: #954531;
       display: flex;
       align-items: center;
@@ -185,7 +184,6 @@
       height: 100vh;
       font-family: sans-serif;
     }
-    */
 
     .switch-button {
       background: rgba(255, 255, 255, 0.56);
@@ -752,11 +750,12 @@
             <option value="Preset 3">Preset 3</option>
             </select>
             <div class="spacer"></div>
-            <div class="switch-button">
-              <input class="switch-button-checkbox" type="checkbox"></input>
-              <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
+            <div id="menutoggle">
+              <div class="switch-button">
+                <input class="switch-button-checkbox" type="checkbox"></input>
+                <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
+              </div>
             </div>
-          
         </div>
         <div id="presets">
           <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
