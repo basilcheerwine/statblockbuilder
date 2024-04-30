@@ -180,7 +180,6 @@
       width: 340px;
       text-align: center;
       font-size: 12px;
-      color: #954531;
       position: relative;
       padding-right: 170px;
     }
@@ -199,6 +198,14 @@
       justify-content: center;
       z-index: 3;
       pointer-events: none;
+    }
+
+    .togcolorhide {
+      color:white;
+    }
+
+    .togcolorshow {
+      color:#954531;
     }
 
     .switch-button-checkbox {
@@ -221,14 +228,9 @@
       transition: transform 300ms linear;
     }
 
-    .switch-button-checkbox:checked + .switch-button:before {
-      color:#954531;
-    }
-
     .switch-button-checkbox + .switch-button-label {
       position: relative;
       padding: 8px 0;
-      color:white;
       font-family:'Scaly Sans';
       font-size:12px;
       box-sizing: border-box;
@@ -258,10 +260,6 @@
       margin: auto;
       font-size:12px;
       line-height:100%;
-    }
-
-    .switch-button-checkbox:checked + .switch-button-label-span {
-      color:white;
     }
 
     #container {
@@ -449,12 +447,26 @@
     function menus() {
       var checkBox = document.getElementById("menus")
       var menuarea = document.getElementById("presetfilters")
+      const showside = document.getElementsByClassName("togcolorshow")
+      const hideside = document.getElementsByClassName("togcolorhide")
       if (checkBox.checked == true){
         menuarea.style.maxHeight = menuarea.scrollHeight + "px";
-        menuarea.style.border = "1px solid darkred"
+        menuarea.style.border = "1px solid darkred";
+        for (let i = 0; i < showside.length; i++) {
+          showside[i].style.color = "#954531";
+        }
+        for (let i = 0; i < hideside.length; i++) {
+          hideside[i].style.color = "white";
+        }
       } else {
         menuarea.style.maxHeight = 0;
         menuarea.style.border = "0px";
+        for (let i = 0; i < hideside.length; i++) {
+          hideside[i].style.color = "#954531";
+        }
+        for (let i = 0; i < showside.length; i++) {
+          showside[i].style.color = "white";
+        }
       }
     }
 
@@ -769,9 +781,9 @@
           <input class="button" type="button" id="legbtn" onclick="alert('Add Legendary Action')" value="Add Legendary Action">
           <input class="button" type="button" id="lairbtn" onclick="alert('Add Lair Action')" value="Add Lair Action">
             <div class="spacer"></div>
-            <div class="switch-button" style="text-align:center; margin:auto; font-family:'Scaly Sans'">
+            <div class="switch-button togcolorshow" style="text-align:center; margin:auto; font-family:'Scaly Sans'">
               <input class="switch-button-checkbox" type="checkbox" id="menus" value="Hide" onclick="menus()"></input>
-              <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
+              <label class="switch-button-label" for=""><span class="switch-button-label-span togcolorhide">Hide Abilities Menu</span></label>
             </div>
           <div class="spacer"></div>
         </div>
