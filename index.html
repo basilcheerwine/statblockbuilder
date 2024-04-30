@@ -179,15 +179,14 @@
       overflow: hidden;
       width: 340px;
       text-align: center;
-      font-family: 'Calibri';
       font-size: 14px;
       letter-spacing: 1px;
       color: #954531;
       position: relative;
       padding-right: 170px;
-      position: relative;
+    }
 
-      &:before {
+    .switch-button:before {
         content: "Show Abilities Menu";
         position: absolute;
         top: 0;
@@ -201,7 +200,7 @@
         pointer-events: none;
       }
 
-      &-checkbox {
+    .switch-button-checkbox {
         cursor: pointer;
         position: absolute;
         top: 0;
@@ -211,37 +210,36 @@
         height: 100%;
         opacity: 0;
         z-index: 2;
+    }
 
-        &:checked + .switch-button-label:before {
-          transform: translateX(170px);
-          transition: transform 300ms linear;
-        }
-
-        & + .switch-button-label {
-          position: relative;
-          padding: 10px 0;
-          display: block;
-          user-select: none;
-          pointer-events: none;
-
-          &:before {
-            content: "";
-            background: #fff;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            border-radius: 30px;
-            transform: translateX(0);
-            transition: transform 300ms;
-          }
-
-          .switch-button-label-span {
-            position: relative;
-          }
-        }
+    .switch-button-checkbox:checked + .switch-button-label:before {
+        transform: translateX(170px);
+        transition: transform 300ms linear;
       }
+
+    .switch-button-checkbox:checked + .switch-button-label {
+      position: relative;
+      padding: 10px 0;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .switch-button-checkbox:before {
+      content: "";
+      background: #fff;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 30px;
+      transform: translateX(0);
+      transition: transform 300ms;
+    }
+
+    .switch-button-label-span {
+      position: relative;
     }
 
     #container {
@@ -738,7 +736,7 @@
             <option value="Preset 3">Preset 3</option>
             </select>
             <div class="spacer"></div>
-            <div class="switch-button">
+            <div class="switch-button" style="text-align:center">
               <input class="switch-button-checkbox" type="checkbox"></input>
               <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
             </div>          
