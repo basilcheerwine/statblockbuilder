@@ -178,6 +178,7 @@
       border-radius: 30px;
       overflow: hidden;
       width: 340px;
+      height:25px;
       text-align: center;
       font-size: 12px;
       letter-spacing: 1px;
@@ -737,20 +738,20 @@
           <input class="button" type="button" onclick="alert('Add Bonus Action')" value="Add Bonus Action">
           <input class="button" type="button" onclick="alert('Add Reaction')" value="Add Reaction">
           <input class="button" type="button" id="legbtn" onclick="alert('Add Legendary Action')" value="Add Legendary Action">
-          <input class="button" type="button" id="lairbtn" onclick="alert('Add Lair Action')" value="Add Lair Action"><br>
+          <input class="button" type="button" id="lairbtn" onclick="alert('Add Lair Action')" value="Add Lair Action">
+            <div class="spacer"></div>
+            <div class="switch-button" style="text-align:center; margin:auto; font-family:'Scaly Sans'">
+              <input class="switch-button-checkbox" type="checkbox" onchange="alert('Show')"></input>
+              <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
+            </div>          
+        </div>
+        <div id="presets">
           <select name="preset-ability" id="preset-ability">
             <option value="Select Preset">Select Preset</option>"
             <option value="Preset 1">Preset 1</option>
             <option value="Preset 2">Preset 2</option>
             <option value="Preset 3">Preset 3</option>
             </select>
-            <div class="spacer"></div>
-            <div class="switch-button" style="text-align:center; margin:auto; font-family:'Scaly Sans'">
-              <input class="switch-button-checkbox" type="checkbox"></input>
-              <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
-            </div>          
-        </div>
-        <div id="presets">
           <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
         </div>
         </div>
