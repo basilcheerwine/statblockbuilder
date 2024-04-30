@@ -170,23 +170,21 @@
       height:100px;
     }
 
-    * {
+    .switch-button {
+      background: #ffffff8f;
       box-sizing: border-box;
       padding: 0;
       margin: 0;
-    }
-
-    .switch-button {
-      background: #ffffff8f;
       border-radius: 30px;
       overflow: hidden;
-      width: 350px;
+      width: 340px;
       text-align: center;
+      font-family: 'Calibri';
       font-size: 14px;
       letter-spacing: 1px;
       color: #954531;
       position: relative;
-      padding-right: 175px;
+      padding-right: 170px;
       position: relative;
 
       &:before {
@@ -195,7 +193,7 @@
         top: 0;
         bottom: 0;
         right: 0;
-        width: 175px;
+        width: 170px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -204,6 +202,7 @@
       }
 
       &-checkbox {
+        cursor: pointer;
         position: absolute;
         top: 0;
         left: 0;
@@ -214,13 +213,13 @@
         z-index: 2;
 
         &:checked + .switch-button-label:before {
-          transform: translateX(175px);
-          transition: transform 250ms linear;
+          transform: translateX(170px);
+          transition: transform 300ms linear;
         }
 
         & + .switch-button-label {
           position: relative;
-          padding: 15px 0;
+          padding: 10px 0;
           display: block;
           user-select: none;
           pointer-events: none;
@@ -235,7 +234,7 @@
             top: 0;
             border-radius: 30px;
             transform: translateX(0);
-            transition: transform 250ms;
+            transition: transform 300ms;
           }
 
           .switch-button-label-span {
@@ -742,7 +741,7 @@
             <div class="switch-button">
               <input class="switch-button-checkbox" type="checkbox"></input>
               <label class="switch-button-label" for=""><span class="switch-button-label-span">Hide Abilities Menu</span></label>
-            </div>
+            </div>          
         </div>
         <div id="presets">
           <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
