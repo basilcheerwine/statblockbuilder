@@ -346,16 +346,12 @@
       display:inline;
     }
 
-    /*
-    #hdshow, #lairbtn, #legbtn, #blnds, #natrmr, #otharm, #othtp, #othlang, #hoverbox {
-      display:none;
-    }*/
-
     #hdshow, #lairbtn, #legbtn, #natrmr, #otharm, #othtp, #othlang {
       display:none;
     }
 
     #blnds, #hoverbox {
+      margin-top: -10px;
       max-height: 0;
       overflow: hidden;
       transition: max-height 300ms ease;
@@ -398,16 +394,6 @@
         toshow.style.display = "none";
       }
     }
-
-    /*function blindBeyond() {
-      var bsrange = document.getElementById("bsight").value;
-      var bbyond = document.getElementById("blnds");
-      if (bsrange > 0){
-        bbyond.style.display = "inline";
-      } else {
-        bbyond.style.display = "none";
-      }
-    }*/
 
     function blindBeyond() {
       var bsrange = document.getElementById("bsight").value;
@@ -458,16 +444,6 @@
         otherlan.style.display = "none";
       }
     }
-
-    /*function flyHover() {
-      var flspd = document.getElementById("flybox").value;
-      var hvr = document.getElementById("hoverbox");
-      if (flspd > 0){
-        hvr.style.display = "inline";
-      } else {
-        hvr.style.display = "none";
-      }
-    }*/
 
     function flyHover() {
       var flspd = document.getElementById("flybox").value;
@@ -823,6 +799,7 @@
           <div class="spacer"></div>
         </div>
         <div id="presetfilters">
+          <div class="spacer"></div>
           <div style="margin:auto; text-align:center;">
             <select name="preset-ability" id="preset-ability">
               <option value="Select Preset">Select Preset</option>"
@@ -831,6 +808,7 @@
               <option value="Preset 3">Preset 3</option>
               </select>
             <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
+            <div class="spacer"></div>
             <div style="height:200px">Additional content here for illustration purposes.</div>
           </div>
         </div>
