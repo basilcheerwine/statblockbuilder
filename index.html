@@ -405,11 +405,12 @@
     function blindBeyond() {
       var bsrange = document.getElementById("bsight").value;
       var bbyond = document.getElementById("blnds");
+      var bcheck = document.getElementById("blbeyond");
       if (bsrange > 0){
         bbyond.style.maxHeight = bbyond.scrollHeight + "px";
       } else {
         bbyond.style.maxHeight = 0;
-        bbyond.checked = false;
+        bcheck.checked = false;
       }
     }
 
@@ -456,11 +457,12 @@
     function flyHover() {
       var flspd = document.getElementById("flybox").value;
       var hvr = document.getElementById("hoverbox");
+      var fcheck = document.getElementById("fly")
       if (flspd > 0){
         hvr.style.maxHeight = hvr.scrollHeight + "px";
       } else {
         hvr.style.maxHeight = 0;
-        hvr.checked = false;
+        fcheck.checked = false;
       }
     }
 
