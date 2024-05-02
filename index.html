@@ -502,10 +502,13 @@
     function showmonfilters() {
       var checkBox = document.getElementById("filterbymon")
       var mf = document.getElementById("monfilters")
+      var menuarea = document.getElementById("presetfilters")
       if (checkBox.checked == true){
         mf.style.maxHeight = mf.scrollHeight + "px";
+        menuarea.style.maxHeight = mf.scrollHeight + menuarea.scrollHeight + "px";
       } else {
         mf.style.maxHeight = 0;
+        menuarea.style.maxHeight = menuarea.scrollHeight + "px";
       }
     }
 
