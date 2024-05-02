@@ -346,6 +346,8 @@
       overflow: hidden;
       transition: max-height 300ms ease;
       background:#ffffff8f;
+      padding:10px;
+      box-sizing:border-box;
     }
 
     #monfilters {
@@ -501,11 +503,11 @@
 
     function showmonfilters() {
       var checkBox = document.getElementById("filterbymon")
-      var monfilters = document.getElementById("monfilters")
+      var mf = document.getElementById("monfilters")
       if (checkBox.checked == true){
-        monfilters.style.maxHeight = monfilters.scrollHeight + "px";
+        mf.style.maxHeight = mf.scrollHeight + "px";
       } else {
-        monfilters.style.maxHeight = 0;
+        mf.style.maxHeight = 0;
       }
     }
 
