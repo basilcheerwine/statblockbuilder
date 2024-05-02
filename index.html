@@ -341,6 +341,7 @@
 
     #presetfilters {
       width: 85%;
+      box-sizing: border-box;
       padding: 10px;
       margin:auto;
       max-height: 0;
@@ -833,8 +834,8 @@
         <div id="presetfilters">
           <div class="spacer"></div>
           <label for="filterbymon">Show monster-specific filters?</label> <input type="checkbox" value="filterbymon" id="filterbymon" onclick="showmonfilters()"></input>
-          <div id="monfilters">
-            <div>Insert filter options related to monsters.</div>
+          <div id="monfilters" style="display: block;">
+            <p>Insert filter options related to monsters.</p>
           </div>
           <div style="margin:auto; text-align:center;">
             <select name="preset-ability" id="preset-ability">
