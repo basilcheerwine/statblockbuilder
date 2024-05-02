@@ -347,7 +347,7 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 300ms ease;
-      transition: padding 500 ms;
+      transition: padding 500ms ease;
       background:#ffffff8f;
     }
 
@@ -355,9 +355,7 @@
       max-height: 0;
       overflow: hidden;
       box-sizing: border-box;
-      padding: 0px;
       transition: max-height 300ms ease;
-      transition: padding 500ms;
       background:#c2c2c2;
     }
 
@@ -512,11 +510,9 @@
       var mf = document.getElementById("monfilters")
       var menuarea = document.getElementById("presetfilters")
       if (checkBox.checked == true){
-        mf.style.padding = "10px";
         mf.style.maxHeight = mf.scrollHeight + "px";
         menuarea.style.maxHeight = mf.scrollHeight + menuarea.scrollHeight + "px";
       } else {
-        mf.style.padding = "0px";
         mf.style.maxHeight = 0;
         menuarea.style.maxHeight = menuarea.scrollHeight + "px";
       }
