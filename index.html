@@ -348,6 +348,13 @@
       background:#ffffff8f;
     }
 
+    #monfilters {
+      max-height: 0;
+      overflow: hide;
+      transition: max-height 300ms ease;
+      background:lightgray;
+    }
+
     #hdhide, #tptg {
       display:inline;
     }
@@ -489,6 +496,16 @@
         for (let i = 0; i < showside.length; i++) {
           showside[i].style.color = "#954531";
         }
+      }
+    }
+
+    function showmonfilters() {
+      var checkBox = document.getElementById("filterbymon")
+      var monfilters = document.getElementById("monfilters")
+      if (checkBox.checked == true){
+        monfilters.style.maxHeight = monfilters.scrollHeight + "px";
+      } else {
+        monfilters.style.maxHeight = 0;
       }
     }
 
@@ -811,6 +828,10 @@
         </div>
         <div id="presetfilters">
           <div class="spacer"></div>
+          <label for="filterbymon">Show monster-specific filters?</label> <input type="checkbox" value="filterbymon" id="filterbymon"></input>
+          <div id="monfilters">
+            <p>Insert filter options related to monsters.</p>
+          </div>
           <div style="margin:auto; text-align:center;">
             <select name="preset-ability" id="preset-ability">
               <option value="Select Preset">Select Preset</option>"
@@ -820,7 +841,6 @@
               </select>
             <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
             <div class="spacer"></div>
-            <div style="height:200px">Additional content here for illustration purposes.</div>
           </div>
         </div>
         </div>
