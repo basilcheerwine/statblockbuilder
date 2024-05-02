@@ -342,7 +342,7 @@
     #presetfilters {
       width: 90%;
       box-sizing: border-box;
-      padding: 10px;
+      padding: 0px;
       margin:auto;
       max-height: 0;
       overflow: hidden;
@@ -353,6 +353,8 @@
     #monfilters {
       max-height: 0;
       overflow: hidden;
+      box-sizing: border-box;
+      padding: 0px;
       transition: max-height 300ms ease;
       background:#c2c2c2;
     }
@@ -481,6 +483,7 @@
       const showside = document.getElementsByClassName("togcolorshow")
       const hideside = document.getElementsByClassName("togcolorhide")
       if (checkBox.checked == true){
+        menuarea.style.padding = "10px";
         menuarea.style.maxHeight = menuarea.scrollHeight + "px";
         menuarea.style.border = "1px solid darkred";
         for (let i = 0; i < showside.length; i++) {
@@ -490,6 +493,7 @@
           hideside[i].style.color = "#954531";
         }
       } else {
+        menuarea.style.padding = "0px";
         menuarea.style.maxHeight = 0;
         menuarea.style.border = "0px";
         for (let i = 0; i < hideside.length; i++) {
@@ -506,9 +510,11 @@
       var mf = document.getElementById("monfilters")
       var menuarea = document.getElementById("presetfilters")
       if (checkBox.checked == true){
+        mf.style.padding = "10px";
         mf.style.maxHeight = mf.scrollHeight + "px";
         menuarea.style.maxHeight = mf.scrollHeight + menuarea.scrollHeight + "px";
       } else {
+        mf.style.padding = "0px";
         mf.style.maxHeight = 0;
         menuarea.style.maxHeight = menuarea.scrollHeight + "px";
       }
