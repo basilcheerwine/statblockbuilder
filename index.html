@@ -346,15 +346,13 @@
       overflow: hidden;
       transition: max-height 300ms ease;
       background:#ffffff8f;
-      padding:10px;
-      box-sizing:border-box;
     }
 
     #monfilters {
       max-height: 0;
       overflow: hide;
       transition: max-height 300ms ease;
-      background:lightgray;
+      background:#c2c2c2;
     }
 
     #hdhide, #tptg {
@@ -830,7 +828,7 @@
         </div>
         <div id="presetfilters">
           <div class="spacer"></div>
-          <label for="filterbymon">Show monster-specific filters?</label> <input type="checkbox" value="filterbymon" id="filterbymon"></input>
+          <label for="filterbymon">Show monster-specific filters?</label> <input type="checkbox" value="filterbymon" id="filterbymon" onclick="showmonfilters()"></input>
           <div id="monfilters">
             <p>Insert filter options related to monsters.</p>
           </div>
