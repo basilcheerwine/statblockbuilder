@@ -342,7 +342,7 @@
     #presetfilters {
       width: 90%;
       box-sizing: border-box;
-      padding: 0px;
+      padding: 10px;
       margin:auto;
       max-height: 0;
       overflow: hidden;
@@ -354,6 +354,7 @@
     #monfilters {
       max-height: 0;
       overflow: hidden;
+      padding: 10px;
       box-sizing: border-box;
       transition: max-height 300ms ease;
       background:#c2c2c2;
@@ -483,7 +484,6 @@
       const showside = document.getElementsByClassName("togcolorshow")
       const hideside = document.getElementsByClassName("togcolorhide")
       if (checkBox.checked == true){
-        menuarea.style.padding = "10px";
         menuarea.style.maxHeight = menuarea.scrollHeight + "px";
         menuarea.style.border = "1px solid darkred";
         for (let i = 0; i < showside.length; i++) {
@@ -493,7 +493,6 @@
           hideside[i].style.color = "#954531";
         }
       } else {
-        menuarea.style.padding = "0px";
         menuarea.style.maxHeight = 0;
         menuarea.style.border = "0px";
         for (let i = 0; i < hideside.length; i++) {
