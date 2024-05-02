@@ -834,9 +834,11 @@
         <div id="presetfilters">
           <div class="spacer"></div>
           <label for="filterbymon">Show monster-specific filters?</label> <input type="checkbox" value="filterbymon" id="filterbymon" onclick="showmonfilters()"></input>
-          <div id="monfilters" style="display: block;">
-            <p>Insert filter options related to monsters.</p>
-            <input type="button" class="button" onclick="alert('Hi')" value="Click">
+          <div id="monfilters">
+            <div style="overflow:inherit">
+              <p>Insert filter options related to monsters.</p>
+              <input type="button" class="button" onclick="alert('Hi')" value="Click">
+            </div>
           </div>
           <div style="margin:auto; text-align:center;">
             <select name="preset-ability" id="preset-ability">
