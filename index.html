@@ -352,7 +352,7 @@
 
     #monfilters {
       max-height: 0;
-      overflow: hide;
+      overflow: hidden;
       transition: max-height 300ms ease;
       background:#c2c2c2;
     }
@@ -834,12 +834,12 @@
         <div id="presetfilters">
           <div class="spacer"></div>
           <label for="filterbymon">Show monster-specific filters?</label> <input type="checkbox" value="filterbymon" id="filterbymon" onclick="showmonfilters()"></input>
-          <!--<div id="monfilters">
+          <div id="monfilters">
             <div style="overflow:inherit">
               <p>Insert filter options related to monsters.</p>
               <input type="button" class="button" onclick="alert('Hi')" value="Click">
             </div>
-          </div> -->
+          </div>
           <div style="margin:auto; text-align:center;">
             <select name="preset-ability" id="preset-ability">
               <option value="Select Preset">Select Preset</option>"
@@ -848,9 +848,9 @@
               <option value="Preset 3">Preset 3</option>
               </select>
             <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
+            </div>
             <div class="spacer"></div>
           </div>
-        </div>
         </div>
       <div class="end-spacer"></div>
       </div>
