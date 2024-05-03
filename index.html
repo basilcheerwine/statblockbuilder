@@ -371,13 +371,16 @@
     #presetfilters {
       width: 90%;
       box-sizing: border-box;
-      padding: 10px;
       margin:auto;
       max-height: 0px;
       overflow: hidden;
       transition: max-height 300ms ease;
       transition: padding 500ms ease;
       background:#ffffff8f;
+    }
+
+    .presetsbox {
+      margin:10px;
     }
 
     #monfilters {
@@ -879,6 +882,7 @@
           <div class="spacer"></div>
         </div>
         <div id="presetfilters">
+          <div class="presetsbox">
           <label for="filterbymon">Show monster-specific filters?</label> <input type="checkbox" value="filterbymon" id="filterbymon" onclick="showmonfilters()"></input>
           <div id="monfilters">
             <table>
@@ -923,8 +927,8 @@
             <table>
               <tr>
                 <td>
-                  <label for="mincr">Minimum CR: </label><input type="range" class="range" min="0" max="30" value="0" id="mincr" step="1" list="crList" onchange="showminSlideVals()"> <span id="minslid"></span><br>
-                  <label for="maxcr">Minimum CR: </label><input type="range" class="range" min="0" max="30" value="30" id="maxcr" step="1" list="crList" onchange="showmaxSlideVals()"> <span id="maxslid"></span>
+                  <label for="mincr">Minimum CR: </label><input type="range" class="range" min="0" max="30" value="0" id="mincr" step="1" list="crList" onchange="showminSlideVals()"> <span id="minslid">0</span><br>
+                  <label for="maxcr">Maximum CR: </label><input type="range" class="range" min="0" max="30" value="30" id="maxcr" step="1" list="crList" onchange="showmaxSlideVals()"> <span id="maxslid">30</span>
                   <datalist id="crList">
                     <option value="0">0</option>
                     <option value="0.125">1/8</option>
@@ -977,6 +981,7 @@
             <div class="spacer"></div>
           </div>
         </div>
+      </div>
       <div class="end-spacer"></div>
       </div>
     </main>
