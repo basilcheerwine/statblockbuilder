@@ -544,20 +544,16 @@
       }
     }
 
-    var slider = document.getElementById("maxcr");
-    var output = document.getElementById("maxslid");
-    output.innerHTML = slider.value;
-
-    slider.oninput = afunction() {
-      output.innerHTML = this.value;
+    function showmaxSlideVals(){
+      var slider = document.getElementById("maxcr").value;
+      var output = document.getElementById("maxslid");
+      output.innerHTML = slider;
     }
 
-    var slider = document.getElementById("mincr");
-    var output = document.getElementById("minslid");
-    output.innerHTML = slider.value;
-
-    slider.oninput = afunction() {
-      output.innerHTML = this.value;
+    function showminSlideVals(){
+      var slider = document.getElementById("mincr").value;
+      var output = document.getElementById("minslid");
+      output.innerHTML = slider;
     }
 
   </script>
@@ -921,8 +917,8 @@
             <table>
               <tr>
                 <td>
-                  <label for="mincr">Minimum CR: <span id="minslid"></span> </label><input type="range" class="range" min="0" max="30" value="0" id="mincr" step="1" list="crList"><br>
-                  <label for="maxcr">Minimum CR: <span id="maxslid"></span> </label><input type="range" class="range" min="0" max="30" value="30" id="maxcr" step="1" list="crList">
+                  <label for="mincr">Minimum CR: <span id="minslid"></span> </label><input type="range" class="range" min="0" max="30" value="0" id="mincr" step="1" list="crList" onchange="showminSlideVals()"><br>
+                  <label for="maxcr">Minimum CR: <span id="maxslid"></span> </label><input type="range" class="range" min="0" max="30" value="30" id="maxcr" step="1" list="crList" onchange="showmaxSlideVals()">
                   <datalist id="crList">
                     <option value="0">0</option>
                     <option value="0.125">1/8</option>
