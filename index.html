@@ -394,8 +394,13 @@
       margin:10px;
     }
 
-    #monfilters table{
+    #monfilters table {
       width:100%;
+    }
+
+    #monfilters label {
+      display:inline-block;
+      width:125px;
     }
 
     #hdhide, #tptg {
@@ -938,8 +943,8 @@
             <table>
               <tr>
                 <td>
-                  <label for="mincr" style="width:120px">Minimum CR: </label><input type="range" class="range" min="0" max="33" step="1" value="0" id="mincr" oninput="showminSlideVals()"> <span id="minslid">0</span><br>
-                  <label for="maxcr" style="width:120px">Maximum CR: </label><input type="range" class="range" min="0" max="33" step="1" value="33" id="maxcr" oninput="showmaxSlideVals()"> <span id="maxslid">30</span>
+                  <label for="mincr">Minimum CR: </label><input type="range" class="range" min="0" max="33" step="1" value="0" id="mincr" oninput="showminSlideVals()"> <span id="minslid">0</span><br>
+                  <label for="maxcr">Maximum CR: </label><input type="range" class="range" min="0" max="33" step="1" value="33" id="maxcr" oninput="showmaxSlideVals()"> <span id="maxslid">30</span>
                 </td>
               </tr>
             </table>
