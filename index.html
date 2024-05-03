@@ -169,7 +169,7 @@
     .range {
       -webkit-appearance: none;
       width: 200px;
-      height: 10px;
+      height: 5px;
       border-radius: 5px;
       background: #fff;
       outline: none;
@@ -178,8 +178,8 @@
     .range::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: #954531;
       border:0px;
@@ -187,8 +187,8 @@
     }
 
     .range::-moz-range-thumb {
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: #954531;
       border:0px;
@@ -930,8 +930,8 @@
             <table>
               <tr>
                 <td>
-                  <label for="mincr">Minimum CR: </label><input type="range" class="range" min="0" max="30" value="0" id="mincr" step="1" list="crList" onchange="showminSlideVals()"> <span id="minslid">0</span><br>
-                  <label for="maxcr">Maximum CR: </label><input type="range" class="range" min="0" max="30" value="30" id="maxcr" step="1" list="crList" onchange="showmaxSlideVals()"> <span id="maxslid">30</span>
+                  <label for="mincr">Minimum CR: </label><input type="range" class="range" min="0" max="30" value="0" id="mincr" list="crList" oninput="showminSlideVals()"> <span id="minslid">0</span><br>
+                  <label for="maxcr">Maximum CR: </label><input type="range" class="range" min="0" max="30" value="30" id="maxcr" list="crList" oninput="showmaxSlideVals()"> <span id="maxslid">30</span>
                   <datalist id="crList">
                     <option value="0">0</option>
                     <option value="0.125">1/8</option>
