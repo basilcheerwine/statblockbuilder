@@ -182,6 +182,7 @@
       height: 15px;
       border-radius: 50%;
       background: #954531;
+      border:0px;
       cursor: pointer;
     }
 
@@ -190,6 +191,7 @@
       height: 15px;
       border-radius: 50%;
       background: #954531;
+      border:0px;
       cursor: pointer;
     }
 
@@ -385,6 +387,10 @@
       box-sizing: border-box;
       transition: max-height 300ms ease;
       background:#c2c2c2;
+    }
+
+    #monfilters table{
+      width:100%;
     }
 
     #hdhide, #tptg {
@@ -917,8 +923,8 @@
             <table>
               <tr>
                 <td>
-                  <label for="mincr">Minimum CR: <span id="minslid"></span> </label><input type="range" class="range" min="0" max="30" value="0" id="mincr" step="1" list="crList" onchange="showminSlideVals()"><br>
-                  <label for="maxcr">Minimum CR: <span id="maxslid"></span> </label><input type="range" class="range" min="0" max="30" value="30" id="maxcr" step="1" list="crList" onchange="showmaxSlideVals()">
+                  <label for="mincr">Minimum CR: </label><input type="range" class="range" min="0" max="30" value="0" id="mincr" step="1" list="crList" onchange="showminSlideVals()"> <span id="minslid"></span><br>
+                  <label for="maxcr">Minimum CR: </label><input type="range" class="range" min="0" max="30" value="30" id="maxcr" step="1" list="crList" onchange="showmaxSlideVals()"> <span id="maxslid"></span>
                   <datalist id="crList">
                     <option value="0">0</option>
                     <option value="0.125">1/8</option>
