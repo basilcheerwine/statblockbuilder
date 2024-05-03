@@ -375,7 +375,6 @@
       max-height: 0px;
       overflow: hidden;
       transition: max-height 300ms ease;
-      transition: padding 500ms ease;
       background:#ffffff8f;
     }
 
@@ -386,10 +385,13 @@
     #monfilters {
       max-height: 0px;
       overflow: hidden;
-      padding: 10px;
       box-sizing: border-box;
       transition: max-height 300ms ease;
       background:#c2c2c2;
+    }
+
+    .monsbox {
+      margin:10px;
     }
 
     #monfilters table{
@@ -885,6 +887,7 @@
           <div class="presetsbox">
           <label for="filterbymon">Show monster-specific filters?</label> <input type="checkbox" value="filterbymon" id="filterbymon" onclick="showmonfilters()"></input>
           <div id="monfilters">
+            <div class="monsbox">
             <table>
               <tr>
                 <td><label for="monnameselect">Search monster names:</label> <select id="monnameselect" name="monnameselect" size="1" multiple>
@@ -969,6 +972,7 @@
               </tr>
             </table>
           </div>
+        </div>
           <div style="margin:auto; text-align:center;">
             <select name="preset-ability" id="preset-ability">
               <option value="Select Preset">Select Preset</option>"
