@@ -388,6 +388,7 @@
       box-sizing: border-box;
       transition: max-height 300ms ease;
       background:#c2c2c2;
+      font-size:11px;
     }
 
     .monsbox {
@@ -400,7 +401,8 @@
 
     #monfilters label {
       display:inline-block;
-      width:125px;
+      width:100px;
+      font-size:12px;
     }
 
     #hdhide, #tptg {
@@ -903,7 +905,7 @@
             <div class="monsbox">
             <table>
               <tr>
-                <td><label for="monnameselect">Search monster names:</label> <select id="monnameselect" name="monnameselect" size="1" multiple>
+                <td><label for="monnameselect">Search monster names:</label> <select id="monnameselect" name="monnameselect">
                     <option value="mon1">Monster 1</option>
                     <option value="mon2">Monster 2</option>
                     <option value="mon3">Monster 3</option>
@@ -912,7 +914,7 @@
                     <option value="mon6">Monster 6</option>
                   </select>
                 </td>
-                <td><label for="montypefilter">Select monster types:</label> <select name="montypefilter" id="montypefilter" multiple size="1">
+                <td><label for="montypefilter">Select monster types:</label> <select name="montypefilter" id="montypefilter">
                     <option value="aberration">Aberration</option>
                     <option value="beast">Beast</option>
                     <option value="celestial">Celestial</option>
@@ -929,7 +931,7 @@
                     <option value="undead">Undead</option>
                   </select>
                 </td>
-                <td><label for="monsubtypefilter">Select monster subtype:</label> <select name="monsubtypefilter" id="monsubtypefilter" multiple size="1">
+                <td><label for="monsubtypefilter">Select monster subtype:</label> <select name="monsubtypefilter" id="monsubtypefilter">
                     <option value="race1">Race 1</option>
                     <option value="race2">Race 2</option>
                     <option value="race3">Race 3</option>
@@ -940,6 +942,7 @@
                 </td>
               </tr>
             </table>
+            <div class="spacer"></div>
             <table>
               <tr>
                 <td>
