@@ -373,7 +373,7 @@
       box-sizing: border-box;
       padding: 10px;
       margin:auto;
-      max-height: 0;
+      max-height: 0px;
       overflow: hidden;
       transition: max-height 300ms ease;
       transition: padding 500ms ease;
@@ -381,7 +381,7 @@
     }
 
     #monfilters {
-      max-height: 0;
+      max-height: 0px;
       overflow: hidden;
       padding: 10px;
       box-sizing: border-box;
@@ -526,7 +526,7 @@
           hideside[i].style.color = "#954531";
         }
       } else {
-        menuarea.style.maxHeight = 0;
+        menuarea.style.maxHeight = "0px";
         menuarea.style.border = "0px";
         for (let i = 0; i < hideside.length; i++) {
           hideside[i].style.color = "white";
@@ -545,7 +545,7 @@
         mf.style.maxHeight = mf.scrollHeight + "px";
         menuarea.style.maxHeight = mf.scrollHeight + menuarea.scrollHeight + "px";
       } else {
-        mf.style.maxHeight = 0;
+        mf.style.maxHeight = "0px";
         menuarea.style.maxHeight = menuarea.scrollHeight + "px";
       }
     }
