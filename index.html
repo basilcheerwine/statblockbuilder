@@ -25,7 +25,7 @@
 <body>
   <div class="row">
     <div class="hint">Template (anything inside <code>[ ... ]</code> becomes an inline text box):</div>
-    <textarea id="templateInput">The [MON] targets all creatures within [#] ft of it. [MON] then retreats. Each target must make a DC [SAVE_DC] [SAVE_TYPE] saving throw, taking [#dX] [DMG_TYPE] damage on a failed save.</textarea>
+    <textarea id="templateInput">The [MON] targets all creatures within [#] ft of it. Each target must make a DC [SAVE_DC] [SAVE_TYPE] saving throw. On a failure, [OUTCOME].</textarea>
   </div>
 
   <div class="row">
@@ -39,7 +39,7 @@
   </div>
 
   <div class="row">
-    <button id="rebuildBtn">Rebuild from Template</button>
+    <button id="rebuildBtn">Restart</button>
     <button id="copyBtn">Copy Output</button>
   </div>
 
@@ -54,7 +54,7 @@
       </div>
     </div>
   </div>
-	<script>
+  <script>
     const output = document.getElementById('output');               // Output textarea.
     const rebuildBtn = document.getElementById('rebuildBtn');       // Rebuild button.
     const copyBtn = document.getElementById('copyBtn');             // Copy button.
