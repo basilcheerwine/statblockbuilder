@@ -1,250 +1,979 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bracket Template Filler</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="https://static-00.iconduck.com/assets.00/dungeons-and-dragons-icon-512x492-vw90341y.png">
+    <title>Stat Block Builder</title>
+  
   <style>
-    body { font-family: system-ui, Arial, sans-serif; padding: 16px; line-height: 1.4; }
-    .row { margin: 10px 0; }
-    .templatePreview {
-      padding: 12px; border: 1px solid #ccc; border-radius: 8px;
-      background: #fafafa; white-space: pre-wrap;
+
+    @font-face {
+      font-family: "Bookinsanity";
+      src: url("https://benlk.github.io/solbera-dnd-fonts/Bookinsanity/Bookinsanity.otf") format("opentype");
+      font-weight: normal;
     }
-    .placeholderInput {
-      display: inline-block; min-width: 80px; max-width: 220px;
-      padding: 2px 6px; margin: 0 2px;
-      border: 1px solid #999; border-radius: 6px;
-      font: inherit; vertical-align: baseline; background: #fff;
+    
+    @font-face {
+		  font-family: "Mr Eaves Small Caps";
+		  src: url("https://benlk.github.io/solbera-dnd-fonts/Mr Eaves/Mr Eaves Small Caps.otf") format("opentype");
+		  font-weight: normal;
+	  }
+
+    @font-face {
+		  font-family: "Scaly Sans";
+		  src: url("https://benlk.github.io/solbera-dnd-fonts/Scaly Sans/Scaly Sans.otf") format("opentype");
+		  font-weight: normal;
+	  }
+
+    @font-face {
+      font-family: "Scaly Sans Caps";
+      src: url("https://benlk.github.io/solbera-dnd-fonts/Scaly Sans Caps/Scaly Sans Caps.otf") format("opentype");
+      font-weight: normal;
     }
-    textarea { width: 100%; min-height: 110px; font-family: ui-monospace, Menlo, Consolas, monospace; }
-    .hint { color: #555; font-size: 13px; }
+
+    body {
+      font-family:'Bookinsanity';
+      font-size:15px;
+      text-align:left;
+      color:#222222;
+      background:#954531;
+      line-height:150%;
+    }
+    
+    h1 {
+      font-family:'Mr Eaves Small Caps';
+      font-size:30px;
+      text-align:center;
+      color:darkred;
+    }
+
+    #statblock h1 {
+      text-align:left;
+      font-size:24px;
+    }
+
+    h2 {
+      font-family:'Scaly Sans Caps';
+      font-size:24px;
+      text-align:center;
+      color:darkred;
+    }
+
+    #statblock h2 {
+      text-align:left;
+      font-size:18px;
+    }
+
+    label {
+      font-family:'Bookinsanity';
+    }
+
+    table {
+      width:90%;
+      margin:auto;
+      text-align:left;
+      vertical-align:top;
+      padding:3px;
+    }
+
+    td {
+      font-family:'Bookinsanity';
+      font-size:16px;
+      padding-left:20px;
+      vertical-align:top;
+    }
+
+    select {
+      font-family:'Scaly Sans';
+      font-size:16px;
+      padding:3px;
+      margin-bottom:3px;
+    }
+
+    option {
+      font-family:'Scaly Sans';
+      font-size:16px;
+    }
+
+    input {
+      font-family:'Scaly Sans';
+      font-size:16px;
+    }
+
+    textarea {
+      width:75%;
+      max-width:800px;
+      min-height:100px;
+      margin:auto;
+      resize:vertical;
+      font-size:16px;
+      text-align:left;
+      vertical-align:top;
+      display:inline;
+      border:1px solid darkred;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
+    .num-box {
+      width:30px;
+      height:auto;
+      font-size:14px;
+      text-align:center;
+      display:inline;
+      font-family:'Consolas';
+    }
+
+    .text-box-long {
+      width:175px;
+      height:auto;
+      font-size:16px;
+      text-align:left;
+      display:inline;
+      font-family:'Consolas';
+    }
+
+    .text-box-short {
+      width:100px;
+      height:auto;
+      font-size:16px;
+      text-align:left;
+      display:inline;
+      font-family:'Consolas';
+    }
+
+    .button {
+      cursor: pointer;
+      padding:4px;
+      margin-right:5px;
+      margin-top:3px;
+      margin-bottom:3px;
+      font-family:'Scaly Sans';
+      font-size:16px;
+      background:#954531;
+      color:#ffffff;
+      border-radius:6px;
+    }
+
+    .range {
+      -webkit-appearance: none;
+      width: 200px;
+      height: 5px;
+      border-radius: 5px;
+      background: #fff;
+      outline: none;
+    }
+
+    .range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #954531;
+      border:0px;
+      cursor: pointer;
+    }
+
+    .range::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #954531;
+      border:0px;
+      cursor: pointer;
+    }
+
+    .end-spacer {
+      width:100%;
+      height:100px;
+    }
+
+    .switch-button {
+      background: #ffffff8f;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      width: 340px;
+      text-align: center;
+      font-size: 12px;
+      position: relative;
+      padding-right: 170px;
+    }
+
+    .switch-button:before {
+      content: "Show Abilities Menu";
+      font-family:'Scaly Sans';
+      font-size:12px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .togcolorhide {
+      color:white;
+      transition: color 300ms;
+    }
+
+    .togcolorshow {
+      color:#954531;
+      transition: color 300ms;
+    }
+
+    .switch-button-checkbox {
+      cursor: pointer;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .switch-button-checkbox:checked + .switch-button-label:before {
+      transform: translateX(170px);
+      transition: transform 300ms linear;
+    }
+
+    .switch-button-checkbox + .switch-button-label {
+      position: relative;
+      padding: 3px 0;
+      font-family:'Scaly Sans';
+      font-size:12px;
+      box-sizing: border-box;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .switch-button-checkbox + .switch-button-label:before {
+      content: "";
+      background:#954531;
+      position: absolute;
+      height: 100%;
+      box-sizing: border-box;
+      width: 100%;
+      left: 0;
+      top: 0;
+      border-radius: 20px;
+      transform: translateX(0);
+      transition: transform 300ms;
+    }
+
+    .switch-button-label-span {
+      position: relative;
+      box-sizing: border-box;
+      font-family:'Scaly Sans';
+      display: inline;
+      margin: auto;
+      font-size:12px;
+      line-height:100%;
+    }
+
+    #container {
+      width:90%;
+      max-width:1200px;
+      position:relative;
+      margin:auto;
+      background:lightgray;
+      border:2px solid darkred;
+    }
+
+    #intro {
+      position:relative;
+      width:100%;
+      max-width:1000px;
+      padding:10px;
+      margin:auto;
+      font-family:'Scaly Sans';
+      font-size:14px;
+    }
+
+    #statblock {
+      width:80%;
+      max-width:800px;
+      position:relative;
+      margin:10px auto;
+      padding:5px;
+      border-top:5px solid darkred;
+      border-bottom:5px solid darkred;
+      border-left:solid 1px #5d3309;
+      border-right:solid 1px #5d3309;
+      background: #eadcce;
+    }
+
+    #stats {
+      position:relative;
+      width:100%;
+      max-width:1000px;
+      padding:10px;
+      margin:auto;
+      font-size:14px;
+      font-family:'Scaly Sans';
+      line-height:150%;
+    }
+
+    #stats .spacer {
+      width:90%;
+      margin:auto;      
+      height:10px;
+      text-align:center;
+      border-top:1px solid darkred;
+      margin-top:10px;
+    }
+
+    #cr {
+      font-size:14px;
+      font-family:'Bookinsanity';
+    }
+
+    #abilities {
+      position:relative;
+      width:100%;
+      max-width:1000px;
+      padding:10px;
+      margin:-15px auto auto auto;
+      font-size:14px;
+      font-family:'Scaly Sans';
+      line-height:150%;
+    }
+
+    #abilities .spacer {
+      width:100%;
+      height:10px;
+    }
+
+    #presetfilters {
+      width: 90%;
+      box-sizing: border-box;
+      margin:auto;
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height 300ms ease;
+      background:#ffffff8f;
+      font-size:12px;
+    }
+
+    #presetfilters select, label, option, input, .button {
+      font-size:12px;
+    }
+
+    .presetsbox {
+      margin:10px;
+    }
+
+    #monfilters {
+      max-height: 0px;
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: max-height 300ms ease;
+      background:#c2c2c2;
+      font-size:11px;
+    }
+
+    .monsbox {
+      margin:10px;
+    }
+
+    #monfilters table {
+      width:100%;
+    }
+
+    .slidlab {
+      display:inline-block;
+      min-width:100px;
+      font-size:11px;
+    }
+
+    #hdhide, #tptg {
+      display:inline;
+    }
+
+    #hdshow, #lairbtn, #legbtn, #natrmr, #otharm, #othtp, #othlang {
+      display:none;
+    }
+
+    #blnds, #hoverbox {
+      margin-top:0px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 300ms ease;
+      font-size:12px;
+    }
+
+
   </style>
-</head>
 
-<body>
-  <div class="row">
-    <div class="hint">Template (anything inside <code>[ ... ]</code> becomes an inline text box):</div>
-    <textarea id="templateInput">The [MON] targets all creatures within [#] ft of it. Each target must make a DC [SAVE_DC] [SAVE_TYPE] saving throw. On a failure, [OUTCOME].</textarea>
-  </div>
-
-  <div class="row">
-    <div class="hint">Fill in the fields:</div>
-    <div id="preview" class="templatePreview"></div>
-  </div>
-
-  <div class="row">
-    <div class="hint">Output:</div>
-    <textarea id="output" readonly></textarea>
-  </div>
-
-  <div class="row">
-    <button id="rebuildBtn">Restart</button>
-    <button id="copyBtn">Copy Output</button>
-  </div>
-
-  <!-- popup modal for advanced customization -->
-  <div id="popupModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
-    <div style="background:#fff;padding:20px;border-radius:8px;max-width:400px;margin:auto;">
-      <h3 id="popupTitle"></h3>
-      <textarea id="popupTextarea" style="width:100%;height:100px;"></textarea>
-      <div style="text-align:right;margin-top:8px;">
-        <button id="popupCancel">Cancel</button>
-        <button id="popupOk">OK</button>
-      </div>
-    </div>
-  </div>
   <script>
-    const output = document.getElementById('output');               // Output textarea.
-    const rebuildBtn = document.getElementById('rebuildBtn');       // Rebuild button.
-    const copyBtn = document.getElementById('copyBtn');             // Copy button.
 
-    let parts = [];                      // Parsed template parts (text or slot).
-    const slotInputs = new Map();        // slotId -> input element (for independent slots).
-    const monInputs = [];                // list of all input elements for the [MON] token.
-    const customTexts = new Map();       // slotId -> custom text for complex tokens
+    function customHP() {
+      var checkBox = document.getElementById("customhp");
+      var tohide = document.getElementById("hdhide");
+      var toshow = document.getElementById("hdshow");
+      if (checkBox.checked == true){
+        tohide.style.display = "none";
+        toshow.style.display = "inline";
+      } else {
+        tohide.style.display = "inline";
+        toshow.style.display = "none";
+      }
+    }
 
-    // references related to the popup dialog
-    let currentPopupSlot = null;         // object { id, key }
-    const popupModal = document.getElementById('popupModal');
-    const popupTitle = document.getElementById('popupTitle');
-    const popupTextarea = document.getElementById('popupTextarea');
-    const popupOk = document.getElementById('popupOk');
-    const popupCancel = document.getElementById('popupCancel');
+    function legendaryBtn() {
+      var checkBox = document.getElementById("legendary");
+      var toshow = document.getElementById("legbtn");
+      if (checkBox.checked == true){
+        toshow.style.display = "inline";
+      } else {
+        toshow.style.display = "none";
+      }
+    }
 
-    const TOKEN_REGEX = /\[([^\[\]]+)\]/g; // Finds bracketed tokens like [MON].
+    function lairBtn() {
+      var checkBox = document.getElementById("lair");
+      var toshow = document.getElementById("lairbtn");
+      if (checkBox.checked == true){
+        toshow.style.display = "inline";
+      } else {
+        toshow.style.display = "none";
+      }
+    }
 
-    function parseTemplate(templateString) {
-      const parsed = [];                // Accumulates parsed parts.
-      let lastIndex = 0;                // Tracks where the previous match ended.
-      let slotId = 0;                   // Unique id per slot occurrence.
+    function blindBeyond() {
+      var bsrange = document.getElementById("bsight").value;
+      var bbyond = document.getElementById("blnds");
+      var bcheck = document.getElementById("blbeyond");
+      if (bsrange > 0){
+        bbyond.style.maxHeight = bbyond.scrollHeight + "px";
+      } else {
+        bbyond.style.maxHeight = 0;
+        bcheck.checked = false;
+      }
+    }
 
-      for (const match of templateString.matchAll(TOKEN_REGEX)) {
-        const start = match.index;      // Start index of the match.
-        const full = match[0];          // Full token including brackets, e.g. "[MON]".
-        const key = match[1];           // Inner token text, e.g. "MON".
+    function naturalArmor() {
+      var rmrtype = document.getElementById("mon-armor").value;
+      var natbon = document.getElementById("natrmr");
+      if (rmrtype == "type14"){
+        natbon.style.display = "inline";
+        otharm.style.display = "none";
+      } else if (rmrtype == "other"){
+        natbon.style.display = "none";
+        otharm.style.display = "inline";
+      }
+      else {
+        natbon.style.display = "none";
+        otharm.style.display = "none";
+      }
+    }
 
-        if (start > lastIndex) {        // If there's text before this token...
-          parsed.push({ type: 'text', value: templateString.slice(lastIndex, start) }); // ...store it.
+    function tagOrType() {
+      var montype = document.getElementById("mon-type").value;
+      var tag = document.getElementById("tptg");
+      var othtype = document.getElementById("othtp")
+      if (montype == "other"){
+        tag.style.display = "none";
+        othtype.style.display = "inline";
+      }
+      else {
+        tag.style.display = "inline";
+        othtype.style.display = "none";
+      }
+    }
+
+    function langOptions() {
+      var langch = document.getElementById("languages").value;
+      var otherlan = document.getElementById("othlang");
+      if (langch == "other"){
+        otherlan.style.display = "inline";
+      } else {
+        otherlan.style.display = "none";
+      }
+    }
+
+    function flyHover() {
+      var flspd = document.getElementById("flybox").value;
+      var hvr = document.getElementById("hoverbox");
+      var fcheck = document.getElementById("fly")
+      if (flspd > 0){
+        hvr.style.maxHeight = hvr.scrollHeight + "px";
+      } else {
+        hvr.style.maxHeight = 0;
+        fcheck.checked = false;
+      }
+    }
+
+    function menus() {
+      var checkBox = document.getElementById("menus")
+      var menuarea = document.getElementById("presetfilters")
+      const showside = document.getElementsByClassName("togcolorshow")
+      const hideside = document.getElementsByClassName("togcolorhide")
+      if (checkBox.checked == true){
+        menuarea.style.maxHeight = menuarea.scrollHeight + "px";
+        menuarea.style.border = "1px solid darkred";
+        for (let i = 0; i < showside.length; i++) {
+          showside[i].style.color = "white";
         }
-
-        parsed.push({ type: 'slot', key, id: slotId++ }); // Store a slot part with unique occurrence id.
-        lastIndex = start + full.length;                  // Advance past this token.
-      }
-
-      if (lastIndex < templateString.length) {            // Add any trailing text after last token.
-        parsed.push({ type: 'text', value: templateString.slice(lastIndex) });
-      }
-
-      return parsed;                                      // Return parsed parts array.
-    }
-
-    // Sync all [MON] input boxes to the same value (but only for MON).
-    function syncMonInputs(sourceInput) {
-      const v = sourceInput.value;                        // Read the typed value from the source input.
-      for (const inp of monInputs) {                      // For every [MON] input on the page...
-        if (inp !== sourceInput) inp.value = v;           // ...copy the value (skip the one being typed in).
-      }
-    }
-
-    // open a modal popup allowing the user to enter custom text
-    function openPopup(part, buttonElement) {
-      currentPopupSlot = { id: part.id, key: part.key, button: buttonElement };
-      popupTitle.textContent = `Customize ${part.key}`;
-      popupTextarea.value = customTexts.get(part.id) || '';
-      popupModal.style.display = 'flex';
-      popupTextarea.focus();
-    }
-
-    function closePopup() {
-      popupModal.style.display = 'none';
-      currentPopupSlot = null;
-    }
-
-    popupOk.addEventListener('click', () => {
-      if (!currentPopupSlot) return;
-      const text = popupTextarea.value.trim();
-      customTexts.set(currentPopupSlot.id, text);
-      // update button label
-      if (currentPopupSlot.button) {
-        currentPopupSlot.button.textContent = text || currentPopupSlot.key;
-      }
-      updateOutput();
-      closePopup();
-    });
-
-    popupCancel.addEventListener('click', () => {
-      closePopup();
-    });
-
-    function renderPreview() {
-      preview.innerHTML = '';                             // Clear old UI.
-      slotInputs.clear();                                 // Clear independent-slot references.
-      monInputs.length = 0;                               // Clear [MON] references.
-
-      for (const part of parts) {                         // Walk template parts in order.
-        if (part.type === 'text') {                       // If it's plain text...
-          preview.appendChild(document.createTextNode(part.value)); // ...append a text node.
-        } else {                                          // Otherwise it's a slot...
-          let input;
-
-          // special-case tokens that need a popup button
-          if (['DURATION','OUTCOME','TGT_EFFECT'].includes(part.key)) {
-            input = document.createElement('button');
-            input.className = 'placeholderInput';
-            input.dataset.slotId = String(part.id);
-            input.textContent = customTexts.get(part.id) || part.key;
-            input.addEventListener('click', () => openPopup(part, input));
-          } else if (part.key === 'SAVE_TYPE') {
-            // create dropdown for saving throw types
-            input = document.createElement('select');
-            input.className = 'placeholderInput';
-            input.dataset.slotId = String(part.id);
-            const options = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
-            const placeholderOption = document.createElement('option');
-            placeholderOption.value = '';
-            placeholderOption.textContent = part.key;
-            placeholderOption.disabled = true;
-            placeholderOption.selected = true;
-            input.appendChild(placeholderOption);
-            for (const opt of options) {
-              const o = document.createElement('option');
-              o.value = opt;
-              o.textContent = opt;
-              input.appendChild(o);
-            }
-          } else {
-            input = document.createElement('input');   // Create an <input>.
-            input.type = 'text';                            // Make it a text input.
-            input.className = 'placeholderInput';           // Apply styling class.
-            input.placeholder = part.key;                   // Show token name as hint.
-            input.dataset.slotId = String(part.id);         // Store slot id for inspection/debug.
-          }
-
-          if (part.key === 'MON') {                       // Special case: share value for [MON] only.
-            monInputs.push(input);                        // Remember this input as a MON input.
-
-            input.addEventListener('input', () => {        // When user types in any MON box...
-              syncMonInputs(input);                       // ...sync all other MON boxes to match.
-              updateOutput();                             // ...then rebuild output.
-            });
-          } else if (['DURATION','OUTCOME','TGT_EFFECT'].includes(part.key)) {
-            // button; text is managed through customTexts map
-            slotInputs.set(part.id, input);               // still keep it for lookup if needed
-          } else {                                        // All other tokens remain independent.
-            slotInputs.set(part.id, input);               // Map this unique slot occurrence to its input.
-
-            input.addEventListener('input', updateOutput); // Typing updates output.
-            // also respond to change event (for selects)
-            input.addEventListener('change', updateOutput);
-          }
-
-          preview.appendChild(input);                     // Insert input inline.
+        for (let i = 0; i < hideside.length; i++) {
+          hideside[i].style.color = "#954531";
+        }
+      } else {
+        menuarea.style.maxHeight = "0px";
+        menuarea.style.border = "0px";
+        for (let i = 0; i < hideside.length; i++) {
+          hideside[i].style.color = "white";
+        }
+        for (let i = 0; i < showside.length; i++) {
+          showside[i].style.color = "#954531";
         }
       }
     }
 
-    function updateOutput() {
-      let result = '';                                    // Accumulate final output string.
-
-      for (const part of parts) {                         // Walk parsed parts in order.
-        if (part.type === 'text') {                       // Text parts are appended as-is.
-          result += part.value;
-        } else if (part.key === 'MON') {                  // For [MON], use the shared value.
-          const shared = (monInputs[0]?.value ?? '').trim(); // Read value from the first MON input.
-          result += shared;                               // Append the shared value.
-        } else if (['DURATION','OUTCOME','TGT_EFFECT'].includes(part.key)) {
-          // custom buttons provide stored text
-          result += (customTexts.get(part.id) || '');
-        } else {                                          // For all other tokens, use independent value.
-          const input = slotInputs.get(part.id);          // Get the input for that unique slot occurrence.
-          result += ((input?.value ?? '').trim());        // Append typed text (or empty).
-        }
+    function showmonfilters() {
+      var checkBox = document.getElementById("filterbymon")
+      var mf = document.getElementById("monfilters")
+      var menuarea = document.getElementById("presetfilters")
+      if (checkBox.checked == true){
+        mf.style.maxHeight = mf.scrollHeight + "px";
+        menuarea.style.maxHeight = mf.scrollHeight + menuarea.scrollHeight + "px";
+      } else {
+        mf.style.maxHeight = "0px";
+        menuarea.style.maxHeight = menuarea.scrollHeight + "px";
       }
-
-      output.value = result;                               // Display final combined text.
     }
 
-    function rebuildFromTemplate() {
-      parts = parseTemplate(templateInput.value);          // Parse template into parts.
-      customTexts.clear();                                 // drop previous custom values – slot IDs will change
-      renderPreview();                                     // Render text + inputs.
-      updateOutput();                                      // Compute initial output.
+    function showmaxSlideVals(){
+      const values = ["0", "1/8", "1/4", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
+	    const input = document.getElementById('maxcr'),
+        output = document.getElementById('maxslid');
+      input.oninput = function() {
+        output.innerHTML = values[this.value];
+      };
+      output.innerHTML = slider.value;
     }
 
-    rebuildBtn.addEventListener('click', rebuildFromTemplate); // Manual rebuild.
+    function showminSlideVals(){
+      const values = ["0", "1/8", "1/4", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
+	    const input = document.getElementById('mincr'),
+        output = document.getElementById('minslid');
+      input.oninput = function() {
+        output.innerHTML = values[this.value];
+      };
+      output.innerHTML = slider.value;
+    }
 
-    let rebuildTimer = null;                               // Debounce timer id.
-    templateInput.addEventListener('input', () => {         // Rebuild after user edits template.
-      clearTimeout(rebuildTimer);                          // Cancel previous timer.
-      rebuildTimer = setTimeout(rebuildFromTemplate, 200);  // Rebuild after short pause.
-    });
-
-    copyBtn.addEventListener('click', async () => {         // Copy output handler.
-      await navigator.clipboard.writeText(output.value);    // Copy output text to clipboard.
-    });
-
-    rebuildFromTemplate();                                  // Build initial UI at load time.
   </script>
-</body>
+    
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <h1 style="margin-top:40px;">Stat Block Builder</h1>
+        <div id="intro">
+        <div style="text-align:center"><label for="presets">Load an existing monster: </label>&nbsp;
+          <select name="presets" id="presets">
+            <option value="default">Default</option>
+            <option value="ghost">Ghost</option>
+            <option value="skeleton">Skeleton</option>
+            <option value="vampire">Vampire</option>
+          </select>&nbsp;&nbsp;&nbsp;
+          <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset"></div>
+        <h2>Stat Block:</h2>
+        </div>
+        <div id="statblock">
+          <h1>Name</h1>
+          <p>Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth. Monster stats and abilities. Lorem ipsum dolor sit amet. Et cetera and so on and so forth.</p>
+        </div>
+        <div id="stats">
+          <h2>Stats:</h2>
+          <table>
+            <tr>
+              <td>Monster Name:<br>
+                <input class="text-box-long" type="text" value="Default Monster Name"></td>
+              <td><label for="mon-size">Size:</label><br>
+                <select name="mon-size" id="mon-size">
+                  <option value="blank"></option>
+                  <option value="tiny">Tiny</option>
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large">Large</option>
+                  <option value="huge">Huge</option>
+                  <option value="gargantuan">Gargantuan</option>
+                </select></td>
+              <td><label for="mon-type">Type:</label><br>
+                <select name="mon-type" id="mon-type" onchange="tagOrType()">
+                  <option value="blank"></option>
+                  <option value="aberration">Aberration</option>
+                  <option value="beast">Beast</option>
+                  <option value="celestial">Celestial</option>
+                  <option value="construct">Construct</option>
+                  <option value="dragon">Dragon</option>
+                  <option value="elemental">Elemental</option>
+                  <option value="fey">Fey</option>
+                  <option value="fiend">Fiend</option>
+                  <option value="giant">Giant</option>
+                  <option value="humanoid">Humanoid</option>
+                  <option value="monstrosity">Monstrosity</option>
+                  <option value="ooze">Ooze</option>
+                  <option value="plant">Plant</option>
+                  <option value="undead">Undead</option>
+                  <option value="other">Other</option>
+                </select></td>
+                <td><p id="tptg">Tag:<br>
+                <input class="text-box-long" type="text" placeholder="tag"></p>
+                <p id="othtp">Type:<br>
+                <input class="text-box-long" type="text" placeholder="type"></p></td>
+              <td>Alignment:<br>
+                <input class="text-box-long" type="text" placeholder="unaligned"></td>
+              </tr>
+          </table>
+          <div class="spacer"></div>
+          <table style="text-align:center">
+            <tr>
+              <td>Strength</td>
+              <td>Dexterity</td>
+              <td>Constitution</td>
+              <td>Intelligence</td>
+              <td>Wisdom</td>
+              <td>Charisma</td>
+            </tr>
+            <tr>
+              <td><input class="num-box" type="number" min="0" value="10"></td>
+              <td><input class="num-box" type="number" min="0" value="10"></td>
+              <td><input class="num-box" type="number" min="0" value="10"></td>
+              <td><input class="num-box" type="number" min="0" value="10"></td>
+              <td><input class="num-box" type="number" min="0" value="10"></td>
+              <td><input class="num-box" type="number" min="0" value="10"></td>
+            </tr>
+            <tr>
+              <td>Mod</td>
+              <td>Mod</td>
+              <td>Mod</td>
+              <td>Mod</td>
+              <td>Mod</td>
+              <td>Mod</td>
+          </table>
+          <div class="spacer"></div>
+          <table>
+            <tr>
+              <td><label for="saves">Saving Throws:</label><br>
+                <select name="saves" id="saves">
+                  <option value="strength">Strength</option>
+                  <option value="dexterity">Dexterity</option>
+                  <option value="constitution">Constitution</option>
+                  <option value="intelligence">Intelligence</option>
+                  <option value="wisdom">Wisdom</option>
+                  <option value="charisma">Charisma</option>
+                </select> <br>
+                <input class="button" type="button" onclick="alert('Proficient')" value="Proficient">
+              </td>
+              <td><p id="hdhide">Hit Dice: <input class="num-box" type="number" min="0" value="2"></p><p id="hdshow">Hit Points: <input class="text-box-long" type="text" placeholder="Enter custom HP"></p><br>
+                <label for="customhp">Use custom HP?</label> <input type="checkbox" id="customhp" name="customhp" value="customhp" onclick="customHP()"></td>
+              <td><label for="mon-armor">Armor:</label> <select name="mon-armor" id="mon-armor" onchange="naturalArmor()">
+                  <option value="blank"></option>
+                  <option value="type1">Padded Armor</option>
+                  <option value="type2">Leather Armor</option>
+                  <option value="type3">Studded Leather</option>
+                  <option value="type4">Hide Armor</option>
+                  <option value="type5">Chain Shirt</option>
+                  <option value="type6">Scale Mail</option>
+                  <option value="type7">Spiked Armor</option>
+                  <option value="type8">Breastplate</option>
+                  <option value="type9">Half Plate</option>
+                  <option value="type10">Ring Mail</option>
+                  <option value="type11">Chain Mail</option>
+                  <option value="type12">Splint Armor</option>
+                  <option value="type13">Plate Mail</option>
+                  <option value="type14">Natural Armor</option>
+                  <option value="other">Other</option>"
+                </select>&nbsp;&nbsp;&nbsp;
+                <label for="shield">Shield?</label> <input type="checkbox" id="shield" name="shield" value="shield"><br>
+                <p id="natrmr">Natural Armor Bonus: <input class="num-box" type="number" min="0" placeholder="2"><br></p>
+                <p id="otharm">AC and Armor Description:
+                <input class="text-box-long" type="text" placeholder="10 (description)"></p></td>
+            </tr>
+        </table>
+          <div class="spacer"></div>        
+        <table>
+          <tr>
+            <td><label for="damages">Damage Types:</label><br>
+              <select name="damages" id="damages">
+                <option value="acid">Acid</option>
+                <option value="bludgeoning">Bludgeoning</option>
+                <option value="cold">Cold</option>
+                <option value="fire">Fire</option>
+                <option value="force">Force</option>
+                <option value="lightning">Lightning</option>
+                <option value="necrotic">Necrotic</option>
+                <option value="piercing">Piercing</option>
+                <option value="poison">Poison</option>
+                <option value="psychic">Psychic</option>
+                <option value="radiant">Radiant</option>
+                <option value="slashing">Slashing</option>
+                <option value="thunder">Thunder</option>
+                <option value="nonmagic">Nonmagical weapons</option>
+                <option value="nonsilver">Non-silvered weapons</option>
+              </select><br>
+              <input class="button" type="button" onclick="alert('Resistant')" value="Resistant">
+              <input class="button" type="button" onclick="alert('Immune')" value="Immune">
+              <input class="button" type="button" onclick="alert('Vulnerable')" value="Vulnerable">
+            </td>
+            <td><label for="conditions">Conditions:</label><br>
+              <select name="conditions" id="conditions">
+                <option value="blinded">Blinded</option>
+                <option value="charmed">Charmed</option>
+                <option value="deafened">Deafened</option>
+                <option value="exhaustion">Exhaustion</option>
+                <option value="frightened">Frightened</option>
+                <option value="grappled">Grappled</option>
+                <option value="incapacitated">Incapacitated</option>
+                <option value="invisible">Invisible</option>
+                <option value="paralyzed">Paralyzed</option>
+                <option value="petrified">Petrified</option>
+                <option value="poisoned">Poisoned</option>
+                <option value="prone">Prone</option>
+                <option value="restrained">Restrained</option>
+                <option value="stunned">Stunned</option>
+                <option value="unconscious">Unconscious</option>
+                <option value="other">Other</option>
+              </select><br>
+              <input class="button" type="button" onclick="alert('Immune')" value="Immune">
+            </td>
+            <td><label for="skills">Skills:</label><br>
+              <select name="skills" id="skills">
+                <option value="acrobatics">Acrobatics</option>
+                <option value="animal handling">Animal Handling</option>
+                <option value="arcana">Arcana</option>
+                <option value="athletics">Athletics</option>
+                <option value="deception">Deception</option>
+                <option value="history">History</option>
+                <option value="insight">Insight</option>
+                <option value="intimidation">Intimidation</option>
+                <option value="investigation">Investigation</option>
+                <option value="medicine">Medicine</option>
+                <option value="nature">Nature</option>
+                <option value="perception">Perception</option>
+                <option value="performance">Performance</option>
+                <option value="persuasion">Persuasion</option>
+                <option value="religion">Religion</option>
+                <option value="sleight of hand">Sleight of Hand</option>
+                <option value="stealth">Stealth</option>
+                <option value="survival">Survival</option>
+              </select><br>
+              <input class="button" type="button" onclick="alert('Proficient')" value="Proficient">
+              <input class="button" type="button" onclick="alert('Expertise')" value="Expertise">
+            </td>
+            <td><label for="languages">Languages:</label><br>
+              <select name="languages" id="languages" onchange="langOptions()">
+                <option value="common">Common</option>
+                <option value="abyssal">Abyssal</option>
+                <option value="celestial">Celestial</option>
+                <option value="deep speech">Deep Speech</option>
+                <option value="draconic">Draconic</option>
+                <option value="dwarven">Dwarven</option>
+                <option value="elvish">Elvish</option>
+                <option value="giant">Giant</option>
+                <option value="gnomish">Gnomish</option>
+                <option value="goblin">Goblin</option>
+                <option value="halfling">Halfling</option>
+                <option value="infernal">Infernal</option>
+                <option value="orcish">Orcish</option>
+                <option value="primordial">Primordial</option>
+                <option value="sylvan">Sylvan</option>
+                <option value="undercommon">Undercommon</option>
+                <option value="void speech">Void Speech</option>
+                <option value="other">Other</option>
+              </select><br>
+              <p id="othlang"><input class="text-box-long" type="text" placeholder="Other"><br></p>
+              <input class="button" type="button" onclick="alert('Speaks')" value="Speaks">
+              <input class="button" type="button" onclick="alert('Understands')" value="Understands">
+            </td>
+          </tr>
+        </table>
+          <div class="spacer"></div>
+        <table>
+          <tr>
+            <td>Darkvision: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+            <td>Blindsight: <input class="num-box" type="number" min="0" placeholder="0" id="bsight" onchange="blindBeyond()"> ft.<br>
+              <p id="blnds"><label for="blbeyond">Blind beyond?</label> <input type="checkbox" id="blbeyond" name="blbeyond" value="blindsight"></p></td>
+            <td>Tremorsense: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+            <td>Truesight: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+            <td>Telepathy: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+          </tr>
+        </table>
+          <div class="spacer"></div>
+        <table>
+          <tr>
+            <td>Speed: <input class="num-box" type="number" min="0" value="30"> ft.</td>
+            <td>Fly: <input class="num-box" type="number" min="0" placeholder="0" id="flybox" onchange="flyHover()"> ft.<br>
+              <p id="hoverbox"><label for="fly">Hover?</label> <input type="checkbox" id="fly" name="fly" value="hover"></p></td>
+            <td>Swim: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+            <td>Burrow: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+            <td>Climb: <input class="num-box" type="number" min="0" placeholder="0"> ft.</td>
+          </tr>
+        </table>
+        <div class="spacer"></div>
+        <div style="text-align:center">
+          <label for="cr">Challenge Rating:</label> <select name="cr" id="cr">
+            <option value="0">0</option>
+            <option value="0.125">1/8</option>
+            <option value="0.25">1/4</option>
+            <option value="0.5">1/2</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+          </select>
+          <p style="font-family:'Bookinsanity';font-size:14px;">Proficiency bonus: ##</p>
+          <div class="spacer"></div>
+          <label for="legendary">Legendary?</label> <input type="checkbox" id="legendary" name="legendary" value="legendary" onclick="legendaryBtn()"></td>&nbsp;&nbsp;&nbsp;
+          <label for="lair">Lair Actions?</label> <input type="checkbox" id="lair" name="lair" value="lair" onclick="lairBtn()"></td>
+          
+        </div>
+      </div> 
+      <div id="abilities">
+        <h2>Abilities:</h2>
+        <div style="text-align:center; font-size:15px;"><input class="text-box-long" type="text" value="Ability Name">
+          </div>
+        <div class="spacer"></div>
+        <div style="text-align:center">
+          <textarea name="description">Description goes here.</textarea>
+          <div class="spacer"></div>
+          <input class="button" type="button" onclick="alert('Add Ability')" value="Add Ability">
+          <input class="button" type="button" onclick="alert('Add Action')" value="Add Action">
+          <input class="button" type="button" onclick="alert('Add Bonus Action')" value="Add Bonus Action">
+          <input class="button" type="button" onclick="alert('Add Reaction')" value="Add Reaction">
+          <input class="button" type="button" id="legbtn" onclick="alert('Add Legendary Action')" value="Add Legendary Action">
+          <input class="button" type="button" id="lairbtn" onclick="alert('Add Lair Action')" value="Add Lair Action">
+            <div class="spacer"></div>
+            <div class="switch-button togcolorshow" style="text-align:center; margin:auto; font-family:'Scaly Sans'">
+              <input class="switch-button-checkbox" type="checkbox" id="menus" value="Hide" onclick="menus()"></input>
+              <label class="switch-button-label" for=""><span class="switch-button-label-span togcolorhide">Hide Abilities Menu</span></label>
+            </div>
+          <div class="spacer"></div>
+        </div>
+        <div id="presetfilters">
+          <div class="presetsbox">
+          <label for="filterbymon">Show monster-specific filters?</label> <input type="checkbox" value="filterbymon" id="filterbymon" onclick="showmonfilters()"></input>
+          <div id="monfilters">
+            <div class="monsbox">
+            <table>
+              <tr>
+                <td><label for="monnameselect">Search monster names:</label> <select id="monnameselect" name="monnameselect">
+                    <option value="mon1">Monster 1</option>
+                    <option value="mon2">Monster 2</option>
+                    <option value="mon3">Monster 3</option>
+                    <option value="mon4">Monster 4</option>
+                    <option value="mon5">Monster 5</option>
+                    <option value="mon6">Monster 6</option>
+                  </select>
+                </td>
+                <td><label for="montypefilter">Select monster types:</label> <select name="montypefilter" id="montypefilter">
+                    <option value="aberration">Aberration</option>
+                    <option value="beast">Beast</option>
+                    <option value="celestial">Celestial</option>
+                    <option value="construct">Construct</option>
+                    <option value="dragon">Dragon</option>
+                    <option value="elemental">Elemental</option>
+                    <option value="fey">Fey</option>
+                    <option value="fiend">Fiend</option>
+                    <option value="giant">Giant</option>
+                    <option value="humanoid">Humanoid</option>
+                    <option value="monstrosity">Monstrosity</option>
+                    <option value="ooze">Ooze</option>
+                    <option value="plant">Plant</option>
+                    <option value="undead">Undead</option>
+                  </select>
+                </td>
+                <td><label for="monsubtypefilter">Select monster subtype:</label> <select name="monsubtypefilter" id="monsubtypefilter">
+                    <option value="race1">Race 1</option>
+                    <option value="race2">Race 2</option>
+                    <option value="race3">Race 3</option>
+                    <option value="race4">Race 4</option>
+                    <option value="devil">Devil</option>
+                    <option value="demon">Demon</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+            <div class="spacer"></div>
+            <table>
+              <tr>
+                <td>
+                  <label for="mincr" class="slidlab">Minimum CR: </label><input type="range" class="range" min="0" max="33" step="1" value="0" id="mincr" oninput="showminSlideVals()"> <span id="minslid">0</span><br>
+                  <label for="maxcr" class="slidlab">Maximum CR: </label><input type="range" class="range" min="0" max="33" step="1" value="33" id="maxcr" oninput="showmaxSlideVals()"> <span id="maxslid">30</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="spacer"></div>
+          <div style="margin:auto; text-align:center;">
+            <select name="preset-ability" id="preset-ability">
+              <option value="Select Preset">Select Preset</option>"
+              <option value="Preset 1">Preset 1</option>
+              <option value="Preset 2">Preset 2</option>
+              <option value="Preset 3">Preset 3</option>
+              </select>
+            <input class="button" type="button" onclick="alert('Load Preset')" value="Load Preset">
+            </div>
+            <div class="spacer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="end-spacer"></div>
+      </div>
+    </main>
+  </body>
 </html>
