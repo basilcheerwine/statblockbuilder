@@ -898,7 +898,37 @@
       output.innerHTML = input.value;
     }
 
-  </script>
+  
+async function loadAbilityData() {
+  const status = document.getElementById("abilityDataStatus");
+
+  try {
+    const response = await fetch("ability-data.json");
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    ABILITY_DATA = await response.json();
+    setWizardDataReady(true);
+
+    if (status) {
+      status.textContent = "Ability data loaded successfully.";
+      status.style.color = "#5d3309";
+    }
+  } catch (error) {
+    console.error("Failed to load ability-data.json:", error);
+    setWizardDataReady(false);
+
+    if (status) {
+      status.textContent = "Failed to load ability-data.json.";
+      status.style.color = "darkred";
+    }
+    throw error;
+  }
+}
+
+</script>
     
   </head>
   <body>
@@ -1384,7 +1414,6 @@
   ----------------------
   The wizard loads ability-data.json at runtime from the same repository/folder as this HTML file. The JSON file should be generated using export_ability_data.py so the frontend always consumes the normalized export format.
 */
-const ABILITY_DATA_FILE = 'ability-data.json';
 
 function emptyAbilityData() {
   return {
@@ -1475,207 +1504,6 @@ function setWizardDataReady(ready) {
   const okButton = document.querySelector('#step1 button');
   if (select) select.disabled = !ready;
   if (okButton) okButton.disabled = !ready;
-}
-
-function loadScriptOnce(src) {
-  return new Promise((resolve, reject) => {
-    if (Array.from(document.scripts).some(script => script.src === src && script.dataset.loaded === 'true')) return resolve();
-    const existing = Array.from(document.scripts).find(script => script.src === src);
-    if (existing && window.XLSX) return resolve();
-    const script = existing || document.createElement('script');
-    script.src = src;
-    script.dataset.loaded = 'true';
-    script.onload = resolve;
-    script.onerror = () => reject(new Error('Could not load XLSX parser from CDN.'));
-    if (!existing) document.head.appendChild(script);
-  });
-}
-
-function sheetRows(workbook, sheetName) {
-  const sheet = workbook.Sheets[sheetName];
-  if (!sheet) {
-    console.warn('Missing expected worksheet:', sheetName);
-    return [];
-  }
-  return XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '', raw: false });
-}
-
-function rowsToObjects(workbook, sheetName) {
-  const rows = sheetRows(workbook, sheetName);
-  if (rows.length < 2) return [];
-  const headers = rows[0].map(header => String(header || '').trim());
-  return rows.slice(1).map(row => {
-    const obj = {};
-    headers.forEach((header, index) => {
-      if (header) obj[header] = String(row[index] ?? '').trim();
-    });
-    return obj;
-  }).filter(row => Object.values(row).some(Boolean));
-}
-
-function templateRows(workbook, sheetName) {
-  return rowsToObjects(workbook, sheetName).map(row => ({
-    ability_type: rowValue(row, 'ability_type', 'Ability Type'),
-    ability_name: rowValue(row, 'ability_name', 'Ability Name', 'Name'),
-    ability_tags: rowValue(row, 'ability_tags', 'Ability Tags', 'Tags'),
-    desc: rowValue(row, 'desc', 'Description', 'Template'),
-    dmg_type: rowValue(row, 'dmg_type', 'Damage Type'),
-    save_type: rowValue(row, 'save_type', 'Save Type'),
-    save_dc: rowValue(row, 'save_dc', 'Save DC'),
-    review: rowValue(row, 'review?', 'Review'),
-    len: rowValue(row, 'len', 'Length')
-  })).filter(row => row.ability_name || row.desc);
-}
-
-function buildTags(workbook) {
-  const rows = sheetRows(workbook, 'tags');
-  if (rows.length < 2) return {};
-  const headers = rows[0].map(v => String(v || '').trim());
-  const columns = {
-    feature: 'Feature/Ability Tags',
-    addon: 'Add-On Tags',
-    outcome: 'Outcome Tags',
-    action: 'Action Tags',
-    attackEffect: 'Attack Effect Tags',
-    conditionEffect: 'Condition Effect Tags',
-    damageEffect: 'Damage Effect Tags',
-    saveEffect: 'Save Effect Tags',
-    secondaryEffect: 'Secondary Effect Tags',
-    targetEffect: 'Target Effect Tags',
-    bonus: 'Bonus Action Tags',
-    reaction: 'Reaction Tags'
-  };
-  const tags = {};
-  Object.entries(columns).forEach(([key, header]) => {
-    const column = headers.findIndex(h => normalizeKey(h) === normalizeKey(header));
-    tags[key] = column === -1 ? [] : uniqueNonBlank(rows.slice(1).map(row => row[column]));
-  });
-  return tags;
-}
-
-function parsePropertyDescriptionsFromText(text, targetMap) {
-  const body = String(text || '').replace(/^Properties?:\s*/i, '').replace(/^Property:\s*/i, '');
-  const regex = /([A-Z][A-Za-z -]*?)(?:\s+\([^)]*\))?\s+\(([^)]{12,})\)/g;
-  let match;
-  while ((match = regex.exec(body)) !== null) {
-    const name = match[1].trim();
-    const description = match[2].trim();
-    if (name && description && !targetMap.has(normalizeKey(name))) targetMap.set(normalizeKey(name), { Property: name, Description: description });
-  }
-}
-
-function buildWeaponProperties(workbook, standardWeapons) {
-  const explicitSheet = workbook.Sheets['weapon properties']
-    ? rowsToObjects(workbook, 'weapon properties').map(row => ({
-        Property: rowValue(row, 'Property', 'Weapon Property'),
-        Description: rowValue(row, 'Description')
-      })).filter(row => row.Property || row.Description)
-    : [];
-  if (explicitSheet.length) return explicitSheet;
-
-  const extracted = new Map();
-  standardWeapons.forEach(row => parsePropertyDescriptionsFromText(row['With Properties'], extracted));
-  return Array.from(extracted.values());
-}
-
-function buildAbilityDataFromWorkbook(workbook) {
-  const standardWeapons = rowsToObjects(workbook, 'standard weapons').map(row => ({
-    Type: rowValue(row, 'Type'),
-    Weapon: rowValue(row, 'Weapon'),
-    Ability: rowValue(row, 'Ability'),
-    'Reach/Range': rowValue(row, 'Reach/Range'),
-    'Damage Die': rowValue(row, 'Damage Die'),
-    'Damage Type': rowValue(row, 'Damage Type'),
-    Properties: rowValue(row, 'Properties'),
-    'Mastery (2024 only)': rowValue(row, 'Mastery (2024 only)', 'Mastery'),
-    'Special Text': rowValue(row, 'Special Text'),
-    Template: rowValue(row, 'Template'),
-    'With Mastery': rowValue(row, 'With Mastery'),
-    'With Properties': rowValue(row, 'With Properties')
-  })).filter(row => row.Weapon || row.Template);
-
-  const customWeapons = rowsToObjects(workbook, 'custom weapons').map(row => ({
-    'Attack Type': rowValue(row, 'Attack Type'),
-    'Attack Name': rowValue(row, 'Attack Name'),
-    'Attack Ability': rowValue(row, 'Attack Ability'),
-    'Reach/Range': rowValue(row, 'Reach/Range'),
-    'Damage Die': rowValue(row, 'Damage Die'),
-    'Damage Type': rowValue(row, 'Damage Type', 'damage Type'),
-    Properties: rowValue(row, 'Properties'),
-    Masteries: rowValue(row, 'Masteries'),
-    Template: rowValue(row, 'Template')
-  })).filter(row => row['Attack Name'] || row.Template);
-
-  const weaponMasteries = rowsToObjects(workbook, 'weapon masteries').map(row => ({
-    Property: rowValue(row, 'Property'),
-    Description: rowValue(row, 'Description')
-  })).filter(row => row.Property || row.Description);
-
-  return {
-    tags: buildTags(workbook),
-    templates: {
-      action: templateRows(workbook, 'actions'),
-      feature: templateRows(workbook, 'features-abilities'),
-      bonus: templateRows(workbook, 'bonus actions'),
-      reaction: templateRows(workbook, 'reactions'),
-      outcome: templateRows(workbook, 'outcomes'),
-      targetEffect: templateRows(workbook, 'target effects'),
-      duration: templateRows(workbook, 'durations'),
-      addon: templateRows(workbook, 'add-ons'),
-      attackEffect: templateRows(workbook, 'attack effects'),
-      conditionEffect: templateRows(workbook, 'condition effects'),
-      damageEffect: templateRows(workbook, 'damage effects'),
-      saveEffect: templateRows(workbook, 'save effects'),
-      secondaryEffect: templateRows(workbook, 'secondary effects')
-    },
-    standardWeapons,
-    customWeapons,
-    weaponMasteries,
-    weaponProperties: buildWeaponProperties(workbook, standardWeapons)
-  };
-}
-
-async function fetchSpreadsheetArrayBuffer() {
-  const candidates = [
-    new URL(ABILITY_SPREADSHEET_FILE, document.baseURI).href,
-    new URL(encodeURIComponent(ABILITY_SPREADSHEET_FILE), document.baseURI).href
-  ];
-  let lastError = null;
-  for (const url of Array.from(new Set(candidates))) {
-    try {
-      const response = await fetch(url, { cache: 'no-store' });
-      if (!response.ok) throw new Error('HTTP ' + response.status + ' for ' + url);
-      return await response.arrayBuffer();
-    } catch (error) {
-      lastError = error;
-    }
-  }
-  throw lastError || new Error('Spreadsheet fetch failed.');
-}
-
-async function loadAbilityDataFromSpreadsheet() {
-  setWizardDataReady(false);
-  setAbilityDataStatus('Loading ability data from ability-data.json...', false);
-  try {
-    if (!window.XLSX) {
-      await loadScriptOnce('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
-    }
-    const workbookBytes = await fetchSpreadsheetArrayBuffer();
-    const workbook = XLSX.read(workbookBytes, { type: 'array' });
-    ABILITY_DATA = buildAbilityDataFromWorkbook(workbook);
-    setWizardDataReady(true);
-    setAbilityDataStatus(
-      'Ability data loaded from Monster Ability Generator.xlsx: ' +
-      Object.values(ABILITY_DATA.templates).reduce((sum, rows) => sum + rows.length, 0) +
-      ' templates and ' + ABILITY_DATA.standardWeapons.length + ' standard weapons.',
-      false
-    );
-  } catch (error) {
-    console.error('Ability spreadsheet could not be loaded:', error);
-    ABILITY_DATA = emptyAbilityData();
-    setWizardDataReady(false);
-    setAbilityDataStatus('Could not load Monster Ability Generator.xlsx. The wizard is disabled until the spreadsheet is served from the same folder/repository as this HTML file.', true);
-  }
 }
 
 function initAbilityWizard() {
@@ -2721,7 +2549,7 @@ function generateStatBlock() {
 
 window.addEventListener('DOMContentLoaded', () => {
   initAbilityWizard();
-  loadAbilityDataFromSpreadsheet();
+  loadAbilityData();
 });
 </script>
 
