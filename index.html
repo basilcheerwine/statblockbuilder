@@ -1198,7 +1198,7 @@
 
       <div id="abilityWizard">
         <h2>Ability Creator Wizard</h2>
-        <div id="abilityDataStatus" style="text-align:center; font-family:'Scaly Sans'; font-size:12px; color:#5d3309; margin-top:-10px;">Loading ability data from Monster Ability Generator.xlsx...</div>
+        <div id="abilityDataStatus" style="text-align:center; font-family:'Scaly Sans'; font-size:12px; color:#5d3309; margin-top:-10px;">Loading ability data from ability-data.json...</div>
 
         <div id="step1" class="wizard-step" style="text-align:center;">
           <label for="abilityTypeSelect">What kind of ability do you want to create?</label>
@@ -1378,17 +1378,13 @@
       </div>
     </main>
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 /*
   Ability Creator Wizard
   ----------------------
-  The wizard loads Monster Ability Generator.xlsx at runtime from the same
-  repository/folder as this HTML file. It intentionally does not include an
-  embedded template-data fallback, so stale placeholder data cannot mask a
-  spreadsheet connection failure.
+  The wizard loads ability-data.json at runtime from the same repository/folder as this HTML file. The JSON file should be generated using export_ability_data.py so the frontend always consumes the normalized export format.
 */
-const ABILITY_SPREADSHEET_FILE = 'Monster Ability Generator.xlsx';
+const ABILITY_DATA_FILE = 'ability-data.json';
 
 function emptyAbilityData() {
   return {
@@ -1659,7 +1655,7 @@ async function fetchSpreadsheetArrayBuffer() {
 
 async function loadAbilityDataFromSpreadsheet() {
   setWizardDataReady(false);
-  setAbilityDataStatus('Loading ability data from Monster Ability Generator.xlsx...', false);
+  setAbilityDataStatus('Loading ability data from ability-data.json...', false);
   try {
     if (!window.XLSX) {
       await loadScriptOnce('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
